@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  font-family: "Open Sans", sans-serif;
+
+  height: 100%;
+  overflow:hidden;
+  background-color: #dddddd;
+  /*background:
+    linear-gradient(45deg, rgba(255,103,0,0.3), rgba(0, 0, 60, 0.1));
+  box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);*/
+
+}
+
+comp-chat-room {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+comp-chat-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
+  overflow: no-content;
+}
+
+.message {
+  display: block;
+  height: auto;
+}
+
+

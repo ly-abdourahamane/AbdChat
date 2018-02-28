@@ -1,0 +1,40 @@
+<mat-grid-list cols="4" rowHeight="100px">
+
+  <mat-grid-tile [colspan]="4" [rowspan]="3">
+
+    <mat-card class="example-card">
+
+      <mat-card-header>
+        <mat-card-title><h2>Identifiez vous</h2></mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form class="example-form" #signInForm="ngForm">
+          <mat-form-field class="example-full-width">
+            <input matInput required
+                   placeholder="Adresse mail" value=""
+                   [(ngModel)]="email"
+                   type="email"
+                   name="email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput required
+                   placeholder="Mot de passe"
+                   type="password"
+                   [(ngModel)]="password"
+                   name="password">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="login()"
+                [disabled]="!signInForm.form.valid">Connexion</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

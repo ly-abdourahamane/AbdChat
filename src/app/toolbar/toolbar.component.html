@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="alert-heading"><a routerLink="/">
+      <span>Communication</span>
+    </a>
+    </div>
+    <span class="spacer"></span>
+    <span>Contacter moi</span>
+
+    <!--MENU DE CONNEXION -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <i class="material-icons">account_circle</i>
+    </button>
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item *ngIf="!(user|async)?.uid">
+        <i class="material-icons">fingerprint</i>
+        <span>
+         <a href="#" (click)="login()">Connexion</a>
+        </span>
+      </button>
+
+      <button mat-menu-item *ngIf="!(user|async)?.uid">
+        <i class="material-icons">perm_identity</i>
+        <span>
+          <a routerLink="/inscription">S'inscrire</a>
+        </span>
+      </button>
+
+      <button mat-menu-item *ngIf="(user|async)?.uid">
+        <mat-icon>notifications_off</mat-icon>
+        <span> <a href="#" (click)="logout()">Logout</a> </span>
+      </button>
+
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>

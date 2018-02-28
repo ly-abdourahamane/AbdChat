@@ -1,0 +1,5 @@
+<div class="feed" *ngIf="feed">
+  <div *ngFor="let message of feed | async" class="message">
+    <comp-message [message]=message></comp-message>
+  </div>
+</div>
