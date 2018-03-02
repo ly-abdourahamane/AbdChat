@@ -19,6 +19,7 @@ export class ChatService {
     this.afAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
+        console.log(this.user);
       }
 
       this.getUser().valueChanges().subscribe((user: UserData) => {

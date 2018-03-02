@@ -1,9 +1,9 @@
-  <form class="chatIpunt">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Saisissez votre message" value="" name="message"
-             [(ngModel)]="message"
-             (keydown)="handleSubmit($event)">
-    </mat-form-field>
-  </form>
+<form class="chatIpunt">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Saisissez votre message" value="" name="message" type="text" id="message"
+           [(ngModel)]="message"
+           (keydown)="handleSubmit($event)">
+  </mat-form-field>
+</form>
 
-  <button class="chatButton" (click)="send()" mat-raised-button color="primary">Envoyer</button>
+<button class="chatButton" (click)="send()" mat-raised-button color="primary">Envoyer</button>

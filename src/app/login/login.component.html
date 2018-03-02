@@ -28,8 +28,13 @@
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="login()"
-                [disabled]="!signInForm.form.valid">Connexion</button>
+        <button mat-raised-button color="primary" (click)="signInWithEmailAndPassword()"
+                [disabled]="!signInForm.form.valid">Connexion
+        </button>
+
+        <button mat-raised-button color="primary" (click)="signInWithFacebook()">Facebook</button>
+
+        <button mat-raised-button color="primary" (click)="signInWithGoogle()">Google</button>
       </mat-card-actions>
     </mat-card>
 

@@ -2,7 +2,29 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body {
+  background-color:darkgray;
+  width: 100%;
+  min-height: 100%;
+  background-size: cover;
+}
 * {
+  font-family: 'Raleway';
+  margin: 0;
+  padding: 0;
+}
+button {
+  background:#4267B2;
+  color:white;
+  padding: 1.2em;
+  width:300px;
+  text-align:center;
+  font-size:1.2em;
+  margin-bottom: 30px;
+  cursor:pointer;
+}
+
+/** {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,11 +40,11 @@ body {
   height: 100%;
   overflow:hidden;
   background-color: #dddddd;
-  /*background:
+  !*background:
     linear-gradient(45deg, rgba(255,103,0,0.3), rgba(0, 0, 60, 0.1));
-  box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);*/
+  box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);*!
 
-}
+}*/
 
 comp-chat-room {
   height: 100%;
