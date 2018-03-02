@@ -19,19 +19,8 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithEmailAndPassword() {
-    console.log('login() called from login-form component');
+    console.log('login() ....');
     this.authenticateService.signInWithEmailAndPassword(this.email, this.password)
-      .then(resolve => {
-        console.log(resolve);
-        this.router.navigate(['chat']);
-      })
-      .catch(error => this.errorMsg = error.message);
-  }
-
-
-  signInWithGoogle() {
-    console.log('login() called from login-form component');
-    this.authenticateService.signInWithGoogle()
       .then(resolve => {
         console.log(resolve);
         this.router.navigate(['chat']);
@@ -48,4 +37,15 @@ export class LoginComponent implements OnInit {
       })
       .catch(error => this.errorMsg = error.message);
   }
+
+  signInWithGoogle() {
+    console.log('login() called from login-form component');
+    this.authenticateService.signInWithGoogle()
+      .then(resolve => {
+        console.log(resolve);
+        this.router.navigate(['chat']);
+      })
+      .catch(error => this.errorMsg = error.message);
+  }
+
 }

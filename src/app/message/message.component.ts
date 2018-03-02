@@ -8,7 +8,7 @@ import {Message} from '../shared/models/message';
 })
 export class MessageComponent implements OnInit {
 
-  @Input() message: Message;
+  @Input() message: any;
   userEmail: string;
   userName: string;
   messageContent: string;
@@ -17,11 +17,11 @@ export class MessageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(chatMessage = this.message[0]) {
+  ngOnInit(chatMessage = this.message) {
     this.messageContent = chatMessage.message;
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
-    this.userName = chatMessage.userName;
+    this.userName = chatMessage.displayName;
 
     console.log(this.message);
   }
