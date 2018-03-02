@@ -14,7 +14,7 @@ export class ToolbarComponent implements OnInit {
 
   user: Observable<firebase.User>;
   userEmail: string;
-  userName: string;
+  displayName: string;
 
   constructor(private authenticateService: AuthenticateService, private router: Router) { }
 
@@ -24,6 +24,7 @@ export class ToolbarComponent implements OnInit {
       if (user) {
         console.log(user);
         this.userEmail = user.email;
+        this.displayName = user.displayName;
       }
     });
   }

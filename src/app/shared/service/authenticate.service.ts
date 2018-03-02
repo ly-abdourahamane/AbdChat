@@ -13,8 +13,6 @@ export class AuthenticateService {
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase, private router: Router) {
     this.user = afAuth.authState;
-
-    console.log(this.user.subscribe(x => console.log(x)));
   }
 
   authUser() {
@@ -42,7 +40,6 @@ export class AuthenticateService {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((resolve) => {
         const status = 'online';
-        console.log(resolve);
         this.setUserStatus(status);
       }).catch(error => console.log(error));
   }
@@ -51,8 +48,8 @@ export class AuthenticateService {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then((resolve) => {
         const status = 'online';
-        console.log(resolve);
         this.setUserStatus(status);
+        console.log(resolve);
       }).catch(error => console.log(error));
   }
 

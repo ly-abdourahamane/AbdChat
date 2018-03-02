@@ -5,7 +5,10 @@
     </a>
     </div>
     <span class="spacer"></span>
-    <span>Contacter moi</span>
+
+    <span>
+      <span id="userEmail" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
+    </span>
 
     <!--MENU DE CONNEXION -->
     <button mat-icon-button [matMenuTriggerFor]="menu">

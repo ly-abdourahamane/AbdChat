@@ -13,7 +13,7 @@ import {
   MatToolbarModule
 } from '@angular/material';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {MessageComponent} from './message/message.component';
@@ -52,6 +52,7 @@ import {AuthenticateService} from './shared/service/authenticate.service';
     RouterModule.forRoot(appRoutes),
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
 
     AngularFireModule,
     AngularFireDatabaseModule,

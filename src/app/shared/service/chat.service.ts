@@ -39,8 +39,6 @@ export class ChatService {
     this.afAuth.authState.subscribe(auth => {
       if (!isNullOrUndefined(auth)) {
 
-        console.log(auth);
-
         this.displayName = auth.displayName;
         this.email = auth.email;
         this.photoUrl = auth.photoURL;
@@ -53,8 +51,6 @@ export class ChatService {
 
   sendMessage(message: string) {
     const timestemp = this.getTimeStamp();
-
-    console.log(message);
 
     this.chatMessages = this.getMessages();
     this.chatMessages.push({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticateService} from '../shared/service/authenticate.service';
 import {Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'comp-signup',
@@ -13,6 +14,12 @@ export class SignupComponent implements OnInit {
   password: string;
   displayName: string;
   errorMsg: string;
+  hide = true; // permet de cacher ou d'afficher le mot de passe
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
   constructor(private authenticateService: AuthenticateService, private router: Router) { }
 
