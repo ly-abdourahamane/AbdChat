@@ -32,6 +32,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 import {ChatService} from './shared/service/chat.service';
 import {AuthenticateService} from './shared/service/authenticate.service';
+import { FlexboxComponent } from './layout/flexbox/flexbox.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {AuthenticateService} from './shared/service/authenticate.service';
     ChatRoomComponent,
     FeedComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    FlexboxComponent
   ],
   imports: [
     BrowserModule,

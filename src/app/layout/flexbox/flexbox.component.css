@@ -1,0 +1,109 @@
+.form-row {
+  padding: 10px 0;
+  display: flex;
+}
+
+.form-row label {
+  padding-right: 10px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+
+.column-layout {
+  max-width: 1300px;
+  background-color: #FFF;
+  margin: 40px auto 0 auto;
+  line-height: 1.65;
+  padding: 20px 50px;
+  display: flex;
+}
+
+
+.main-column {
+  flex: 3;
+  order: 2; /*Défini l'ordre d'affichage*/
+}
+
+.sidebar-one {
+  flex: 1;
+  order: 1;
+}
+
+.sidebar-two {
+  flex: 1;
+  order: 3;
+}
+
+
+/* Définition des marges */
+.call-outs-container {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+
+ /* align-items: flex-start; */ /*permet aussi l'alignement*/
+}
+
+/* permet d'ajouter les responsives (affichage pour les portables, tablettes, ..)*/
+@media (min-width: 900px) {
+  .call-outs-container {
+    display: flex;
+    justify-content: space-between; /*permet l'alignement des composants*/
+  }
+}
+
+.call-out {
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  flex-basis: 30%;
+ /* margin-right: 40px;*/
+}
+
+/*.call-out:last-child {
+  margin-right: 0; !* positionne le dernier composant à la fin*!
+}*/
+
+.call-out:nth-child(1) {
+  background-color: red;
+}
+
+.call-out:nth-child(2) {
+  background-color: yellow;
+}
+.call-out:nth-child(3) {
+  background-color: green;
+}
+
+
+/*manipulation des lignes et des colonnes*/
+.equal-height-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.first {
+  background-color: #FFF;
+  padding: 20px;
+  flex: 1;
+}
+
+.second {
+  background-color: #4FC3F7;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.second-a {
+  background-color: coral;
+  flex: 1;
+}
+
+.second-b {
+  background-color: #453968;
+  flex: 1;
+}
