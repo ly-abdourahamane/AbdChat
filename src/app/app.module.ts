@@ -34,6 +34,8 @@ import {ChatService} from './shared/service/chat.service';
 import {AuthenticateService} from './shared/service/authenticate.service';
 import { FlexboxComponent } from './layout/flexbox/flexbox.component';
 import {EmojiPickerModule} from 'ng-emoji-picker';
+import {GalleriaModule, LightboxModule} from 'primeng/primeng';
+import { GalleriaPngComponent } from './galleria-png/galleria-png.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import {EmojiPickerModule} from 'ng-emoji-picker';
     SignupComponent,
     LoginComponent,
     FlexboxComponent,
+    GalleriaPngComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,9 @@ import {EmojiPickerModule} from 'ng-emoji-picker';
     MatGridListModule,
     MatListModule,
 
-
+    // Primeng
+    GalleriaModule,
+    LightboxModule
   ],
   providers: [AuthenticateService, ChatService],
   bootstrap: [AppComponent]
