@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {UserData} from '../shared/models/user';
 import {ChatService} from '../shared/service/chat.service';
 

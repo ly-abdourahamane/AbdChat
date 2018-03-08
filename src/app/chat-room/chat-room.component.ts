@@ -8,8 +8,10 @@ import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angul
 export class ChatRoomComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('scroller') private feedContainer: ElementRef;
+  myMessageString = '';
 
   constructor() {
+    this.myMessageString = ' :smile: I;; :joy:';
   }
 
   ngOnInit() {

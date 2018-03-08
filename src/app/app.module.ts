@@ -7,7 +7,7 @@ import {
   MatButtonModule, MatCardModule, MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatListModule,
   MatMenuModule,
   MatSelectModule,
   MatToolbarModule
@@ -33,7 +33,7 @@ import {environment} from '../environments/environment';
 import {ChatService} from './shared/service/chat.service';
 import {AuthenticateService} from './shared/service/authenticate.service';
 import { FlexboxComponent } from './layout/flexbox/flexbox.component';
-
+import {EmojiPickerModule} from 'ng-emoji-picker';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { FlexboxComponent } from './layout/flexbox/flexbox.component';
     FeedComponent,
     SignupComponent,
     LoginComponent,
-    FlexboxComponent
+    FlexboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +55,11 @@ import { FlexboxComponent } from './layout/flexbox/flexbox.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+
+/*    Ng2EmojiModule,
+    Ng2EmojiModule.forRoot(),*/
+    EmojiPickerModule,
+   // PickerModule,
 
     AngularFireModule,
     AngularFireDatabaseModule,
@@ -70,7 +75,10 @@ import { FlexboxComponent } from './layout/flexbox/flexbox.component';
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule,
+
+
   ],
   providers: [AuthenticateService, ChatService],
   bootstrap: [AppComponent]

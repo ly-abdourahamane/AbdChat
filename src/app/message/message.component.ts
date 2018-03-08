@@ -14,6 +14,7 @@ export class MessageComponent implements OnInit {
   messageContent: string;
   timeStamp: string;
   isOwnMessage: boolean;
+  nbLike: number;
 
   constructor() { }
 
@@ -22,5 +23,17 @@ export class MessageComponent implements OnInit {
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
     this.userName = chatMessage.displayName;
+
+    this.nbLike = 0;
+  }
+
+  like() {
+    this.nbLike ++;
+  }
+
+  notLike() {
+    if (this.nbLike > 0) {
+      this.nbLike --;
+    }
   }
 }

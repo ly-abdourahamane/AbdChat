@@ -1,5 +1,5 @@
 .userItem:hover{
-  background-color: #453968;
+  background-color: #4FC3F7;
   color: #ddd;
   transition: ease-in 0.1s;
 }
@@ -17,7 +17,7 @@
 }
 
 .status{
-  border: 1px solid black;
+  border: 0px solid #dddddd;
   display: inline-block;
   min-width: 10px;
   min-height: 10px;

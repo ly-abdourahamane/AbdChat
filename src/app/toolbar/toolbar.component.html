@@ -1,13 +1,25 @@
+<div class="toolbar">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div class="alert-heading"><a routerLink="/">
-      <span>Communication</span>
-    </a>
+    <div class="alert-heading">
+      <a routerLink="/"><span>Communication</span> </a>
     </div>
+    <button mat-icon-button>
+      <i class="material-icons">sentiment_very_satisfied</i>
+    </button>
+
+    <button mat-button>
+      <span>Contact</span>
+    </button>
+
+    <button mat-icon-button>
+     <i class="material-icons">rowing</i>
+    </button>
+
     <span class="spacer"></span>
 
     <span>
-      <span id="userEmail" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
+      <span id="displayName" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
     </span>
 
     <!--MENU DE CONNEXION -->
@@ -32,10 +44,11 @@
 
       <button mat-menu-item *ngIf="(user|async)?.uid">
         <mat-icon>notifications_off</mat-icon>
-        <span> <a href="#" (click)="logout()">Logout</a> </span>
+        <span> <a href="#" (click)="logout()">Deconnexion</a> </span>
       </button>
 
     </mat-menu>
 
   </mat-toolbar-row>
 </mat-toolbar>
+</div>

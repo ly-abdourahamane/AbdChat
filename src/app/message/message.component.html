@@ -1,13 +1,28 @@
-<div class="messageContainer">
-  <div class="messageData">
-    <span class="sender">
-       <p>{{userName}}</p>
-    </span>
-    <span class="timeStamp">
-       <p>{{timeStamp}}</p>
-    </span>
-  </div>
-  <div class="messageContent">
-    {{messageContent}}
-  </div>
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{userName}}</mat-card-title>
+    <mat-card-subtitle>{{timeStamp}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{messageContent}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <button mat-icon-button color="primary" (click)="like()">
+        <i class="material-icons">thumb_up</i>
+      </button>
+
+      <button mat-icon-button color="warn" (click)="notLike()">
+        <i class="material-icons">thumb_down</i>
+      </button>
+    </div>
+
+    <span>Vous avez <span class="w3-badge">{{nbLike}}</span> j'aime</span>
+
+  </mat-card-actions>
+</mat-card>
+
+

@@ -2,6 +2,11 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
+.emoji{
+  display:inline-block;
+}
+
 body {
   background-color:darkgray;
 }
@@ -12,6 +17,11 @@ body {
   padding: 0;
   border: 0;
 }
+
+.print-data {
+  padding-top: 62px;
+}
+
 /*
 
 * {
@@ -47,13 +57,14 @@ comp-chat-form {
   height: 100%;
   width: 100%;
   display: flex;
-  white-space: nowrap;
-  overflow: no-content;
+ /* white-space: nowrap;*/
+  /*overflow: scroll;*/
 }
 
 .message {
   display: block;
   height: auto;
 }
+
 
 

@@ -1,9 +1,28 @@
 <form class="chatIpunt">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Saisissez votre message" value="" name="message"
+  <!--<mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Saisissez votre message" value="" name="message"
            [(ngModel)]="message"
-           (keydown)="handleSubmit($event)">
-  </mat-form-field>
+              rows="25"
+              (keydown)="handleSubmit($event)"></textarea>
+  </mat-form-field>-->
+
+  <div class="example-full-width">
+    <emoji-input [(model)]="message"
+                 [inputClass]="'red'"
+                 [searchClass]="'blue'"
+                 style="display: inline-block;"
+                 (click)="openPopup(true)"
+                 (setPopupAction)="setPopupAction($event)"
+                 (keydown)="handleSubmit($event)">
+    </emoji-input>
+    <button type="button" name="button"  style="display: inline-block;" (click)="openPopup(true)">
+     emoji
+    </button>
+  </div>
 </form>
 
-<button class="chatButton" (click)="send()" mat-raised-button color="primary">Envoyer</button>
+
+
+<button class="chatButton" (click)="send()" mat-raised-button color="primary">
+  <i class="material-icons">send</i>
+</button>

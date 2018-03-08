@@ -9,10 +9,14 @@ import {ChatService} from '../shared/service/chat.service';
 export class ChatFormComponent implements OnInit {
 
   message: string;
+  text: string;
+  openPopup: Function;
 
   constructor(private  chatService: ChatService) { }
 
   ngOnInit() {
+    this.text = '';
+    this.message = '';
   }
 
   send() {
@@ -22,6 +26,15 @@ export class ChatFormComponent implements OnInit {
   }
 
   handleSubmit(event) {
+    if (event.keyCode === 13) {
+      this.send();
+    }
+  }
+
+  setPopupAction(event: any) {
+    console.log('setPopupAction');
+    console.log(event);
+    this.openPopup = event;
     if (event.keyCode === 13) {
       this.send();
     }

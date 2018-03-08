@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { Picker } from 'emoji-mart';
+import { Emoji } from 'emoji-mart';
+
+
 @Component({
   selector: 'comp-root',
   templateUrl: './app.component.html',
@@ -7,4 +11,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'comp';
+
 }

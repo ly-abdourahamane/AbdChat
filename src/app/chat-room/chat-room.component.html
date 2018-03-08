@@ -1,11 +1,16 @@
 <div class="mainContent">
+  <!--<div class="message-container" [innerHTML]="myMessageString | emojis">
+  </div>-->
   <div class="userListWrapper">
     <comp-user-list></comp-user-list>
   </div>
+
   <div #scroller class="feedWrapper">
     <comp-feed></comp-feed>
   </div>
+
 </div>
+
 
 <div class="chatFormWrapper">
   <comp-chat-form></comp-chat-form>
