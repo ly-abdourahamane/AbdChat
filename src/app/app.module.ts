@@ -9,7 +9,7 @@ import {
   MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
-  MatSelectModule, MatSidenavModule,
+  MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -41,6 +41,12 @@ import {TOKENS_PROVIDERS} from './carousel/country/countries.tokens';
 import {DataAccessService} from './carousel/country/data-access.service';
 import {CountryComponent} from './carousel/country/country.component';
 
+
+import { ShareModule } from '@ngx-share/core';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {ShareButtonModule} from '@ngx-share/button';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +62,8 @@ import {CountryComponent} from './carousel/country/country.component';
     FlexboxComponent,
     GalleriaPngComponent,
     CarouselComponent,
-    CountryComponent
+    CountryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +99,11 @@ import {CountryComponent} from './carousel/country/country.component';
     LightboxModule,
     CarouselModule,
     SidebarModule,
+
+    HttpClientModule,      // (Required) for share counts
+    HttpClientJsonpModule, // (Optional) For linkedIn & Tumblr counts
+    ShareModule.forRoot(),
+    ShareButtonModule
   ],
   providers: [AuthenticateService, ChatService, ...TOKENS_PROVIDERS, DataAccessService],
   bootstrap: [AppComponent]

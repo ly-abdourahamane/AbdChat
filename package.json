@@ -23,6 +23,8 @@
     "@angular/platform-browser": "^5.2.7",
     "@angular/platform-browser-dynamic": "^5.2.7",
     "@angular/router": "^5.2.7",
+    "@ngx-share/button": "^5.0.1",
+    "@ngx-share/core": "^5.0.1",
     "angularfire2": "^5.0.0-rc.5-next",
     "core-js": "^2.4.1",
     "countries-data": "^1.0.1",

@@ -2,6 +2,9 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@import '~font-awesome/css/font-awesome.min.css';
+@import "~@ngx-share/button/styles/share-buttons";
+@import "~@ngx-share/button/styles/themes/default/default-theme";
 
 .emoji{
   display:inline-block;
