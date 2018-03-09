@@ -10,7 +10,7 @@ import {
   MatInputModule, MatListModule,
   MatMenuModule,
   MatSelectModule, MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -96,6 +96,7 @@ import { SigallComponent } from './sigall/sigall.component';
     MatGridListModule,
     MatListModule,
     MatTabsModule,
+    MatTooltipModule,
 
     // Primeng
     GalleriaModule,

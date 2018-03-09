@@ -1,91 +1,89 @@
-<div class="toolbar">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <div class="alert-heading">
-        <a routerLink="/"><i class="material-icons">home</i> </a>
-      </div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="alert-heading">
+      <a routerLink="/"><i class="material-icons">home</i> </a>
+    </div>
 
-      <div style="font-size:1.5em; color:#E1F5FE">
-        <a target="_blank" rel="noopener" href="https://www.facebook.com/rahamane.ly">
-          <i class="fab fa-facebook-square"></i>
-        </a>
-      </div>
+    <div style="font-size:1.5em; color:#E1F5FE">
+      <a target="_blank" rel="noopener" href="https://www.facebook.com/rahamane.ly">
+        <i matTooltip="Contactez moi sur Facebook" class="fab fa-facebook-square"></i>
+      </a>
+    </div>
 
-      <div style="font-size:1.5em; color:#E1F5FE">
-        <a target="_blank" rel="noopener" href="https://twitter.com/">
-          <i class="fab fa-twitter-square"></i>
-        </a>
-      </div>
+    <div style="font-size:1.5em; color:#E1F5FE">
+      <a target="_blank" rel="noopener" href="https://twitter.com/">
+        <i matTooltip="Contactez moi sur Twitter" class="fab fa-twitter-square"></i>
+      </a>
+    </div>
 
-      <div style="font-size:1.5em; color:#E1F5FE">
-        <a target="_blank" rel="noopener" href="https://github.com/ly-abdourahamane">
-          <i class="fab fa-github-square"></i>
-        </a>
-      </div>
+    <div style="font-size:1.5em; color:#E1F5FE">
+      <a target="_blank" rel="noopener" href="https://github.com/ly-abdourahamane">
+        <i matTooltip="Consultez mes dépots github" class="fab fa-github-square"></i>
+      </a>
+    </div>
 
-      <div style="font-size:1.5em; color:#E1F5FE">
-        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/abdourahamane-ly-111300121/">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
+    <div style="font-size:1.5em; color:#E1F5FE">
+      <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/abdourahamane-ly-111300121/">
+        <i matTooltip="Ajoutez moi sur LinkedIn" class="fab fa-linkedin"></i>
+      </a>
+    </div>
 
-      <div style="font-size:1.5em; color:#E1F5FE">
-        <a target="_blank" rel="noopener" href="https://plus.google.com/discover">
-          <i class="fab fa-google-plus-square"></i>
-        </a>
-      </div>
+    <div style="font-size:1.5em; color:#E1F5FE">
+      <a target="_blank" rel="noopener" href="https://plus.google.com/discover">
+        <i class="fab fa-google-plus-square"></i>
+      </a>
+    </div>
 
-      <div style="font-size:1.5em; color:#E1F5FE">
-        <a target="_blank" rel="noopener" href="https://bitbucket.org/ab_dou/">
-          <i class="fab fa-bitbucket"></i>
-        </a>
-      </div>
+    <div style="font-size:1.5em; color:#E1F5FE">
+      <a target="_blank" rel="noopener" href="https://bitbucket.org/ab_dou/">
+        <i matTooltip="Mes projets sur Bitbucket" class="fab fa-bitbucket"></i>
+      </a>
+    </div>
 
-      <button mat-button (click)="visibleSidebar = true">
-        <span id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
-      </button>
+    <button mat-button (click)="visibleSidebar = true">
+      <span matTooltip="Affiche les utilisateurs" id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
+    </button>
 
-      <span class="spacer"></span>
+    <span class="spacer"></span>
 
-      <span>
+    <span>
       <span id="displayName" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
     </span>
 
-      <!--MENU DE CONNEXION -->
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <i class="material-icons">account_circle</i>
-      </button>
-      <mat-menu #menu="matMenu">
 
-        <button mat-menu-item *ngIf="!(user|async)?.uid">
-          <i class="material-icons">fingerprint</i>
-          <span>
+    <!--MENU DE CONNEXION -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <i matTooltip="Connectez vous ou créez un compte" class="material-icons">account_circle</i>
+    </button>
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item *ngIf="!(user|async)?.uid">
+        <i class="material-icons">fingerprint</i>
+        <span>
          <a href="#" (click)="login()">Connexion</a>
         </span>
-        </button>
+      </button>
 
-        <button mat-menu-item *ngIf="!(user|async)?.uid">
-          <i class="material-icons">perm_identity</i>
-          <span>
+      <button mat-menu-item *ngIf="!(user|async)?.uid">
+        <i class="material-icons">perm_identity</i>
+        <span>
           <a routerLink="/inscription">S'inscrire</a>
         </span>
-        </button>
+      </button>
 
-        <button mat-menu-item *ngIf="(user|async)?.uid">
-          <mat-icon>notifications_off</mat-icon>
-          <span> <a href="#" (click)="logout()">Deconnexion</a> </span>
-        </button>
+      <button mat-menu-item *ngIf="(user|async)?.uid">
+        <mat-icon>notifications_off</mat-icon>
+        <span> <a href="#" (click)="logout()">Deconnexion</a> </span>
+      </button>
 
-      </mat-menu>
+    </mat-menu>
 
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-
-<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
-  <h3 style="font-weight:normal">Amis connectés</h3>
-  <div #scroller class="call-out">
-    <comp-user-list></comp-user-list>
-  </div>
-</p-sidebar>
+  <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+    <h3 style="font-weight:normal">Amis connectés</h3>
+    <div #scroller class="call-out">
+      <comp-user-list></comp-user-list>
+    </div>
+  </p-sidebar>

@@ -8,14 +8,6 @@
   background-color: #00FFAA;
 }
 
-.busy{
-  background-color: #FFBB00;
-}
-
-.offline{
-  background-color: #888;
-}
-
 .status{
   border: 0px solid #dddddd;
   display: inline-block;
@@ -25,6 +17,3 @@
   margin: 10px 12px 0px 10px;
 }
 
-.userName{
-  display: inline-block;
-}

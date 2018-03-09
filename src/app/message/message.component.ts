@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Message} from '../shared/models/message';
 
 @Component({
   selector: 'comp-message',
@@ -19,10 +18,12 @@ export class MessageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(chatMessage = this.message) {
+
     this.messageContent = chatMessage.message;
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
     this.userName = chatMessage.displayName;
+
 
     this.nbLike = 0;
   }

@@ -29,6 +29,11 @@ export class ChatService {
     return this.database.object(path);
   }
 
+  getUser_(userId) {
+    console.log('/users/' + userId);
+    return this.database.object('/users/' + userId);
+  }
+
   getUsers() {
     const path = `/users/`;
     return this.database.list(path);
@@ -38,6 +43,8 @@ export class ChatService {
     console.log('get user data');
     this.afAuth.authState.subscribe(auth => {
       if (!isNullOrUndefined(auth)) {
+
+        console.log(auth);
 
         this.displayName = auth.displayName;
         this.email = auth.email;
@@ -74,7 +81,7 @@ export class ChatService {
   getMessages(): AngularFireList<any[]> {
     console.log('calling getMessages...');
     return this.database.list('messages',  ref => {
-      const query = ref.limitToLast(25).orderByKey();
+      const query = ref.limitToLast(90000).orderByKey();
       return query;
     });
   }

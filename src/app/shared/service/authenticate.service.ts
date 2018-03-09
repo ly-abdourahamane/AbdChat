@@ -11,12 +11,22 @@ export class AuthenticateService {
   private user: Observable<firebase.User>;
   private authState: any;
 
-  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase, private router: Router) {
+  constructor(private afAuth: AngularFireAuth, private database: AngularFireDatabase, private router: Router) {
     this.user = afAuth.authState;
   }
 
   authUser() {
     return this.user;
+  }
+
+  getUs() {
+    const path = `/users/${this.currentUserId}`;
+    return this.database.object(path);
+  }
+
+  getUser(userId) {
+    console.log('/users/' + userId);
+    return this.database.object('/users/' + userId);
   }
 
   logout() {
@@ -69,7 +79,7 @@ export class AuthenticateService {
       displayName: displayName,
       status: status
     };
-    this.db.object(path).update(data)
+    this.database.object(path).update(data)
       .catch(error => console.log(error));
   }
 
@@ -79,7 +89,7 @@ export class AuthenticateService {
       status: status
     };
 
-    this.db.object(path).update(data)
+    this.database.object(path).update(data)
       .catch(error => console.log(error));
   }
 }

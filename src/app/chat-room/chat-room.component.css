@@ -1,41 +1,3 @@
-.mainContent{
-  display: flex;
-}
-
-.userListWrapper {
-  background-color: #000000;
-  color: #fff;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2em;
-  flex: 1;
-  order: 2;
-  padding:20px 0px 40px 30px;
-  border-right: 1px solid #222;
-}
-
-.feedWrapper {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2em;
-  flex: 5;
-  order: 1;
-  overflow-y: scroll;
-  padding:20px 0px 0px 24px;
-}
-
-.pub {
-
-}
-
-.chatFormWrapper {
-  display: flex;
-  width:40%;
-  background-color: #eee;
-  z-index: 3;
-  height:90px;
-  bottom:0px;
-  position:fixed;
-}
 
 #scroll-style::-webkit-scrollbar-track
 {
@@ -47,8 +9,6 @@ comp-user-list {
   width: 100%;
   height: 100%;
 }
-
-
 
 
 /* ***************************/
@@ -83,27 +43,9 @@ comp-user-list {
 /* send message */
 .send-message {
   display: flex;
-  width:40%;
-  background-color: #eee;
+  width:25%;
   z-index: 3;
   height:90px;
-  bottom:0px;
+  bottom:90px;
   position:fixed;
-}
-
-
-@media (min-width: 20px) {
-  .send-message {
-    display: flex;
-    justify-content: space-between; /*permet l'alignement des composants*/
-  }
-}
-.chatform {
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  flex-basis: 30%;
-}
-
-.chatform:nth-child(4) {
-  order: 4;
 }
