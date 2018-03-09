@@ -34,8 +34,12 @@ import {ChatService} from './shared/service/chat.service';
 import {AuthenticateService} from './shared/service/authenticate.service';
 import { FlexboxComponent } from './layout/flexbox/flexbox.component';
 import {EmojiPickerModule} from 'ng-emoji-picker';
-import {GalleriaModule, LightboxModule} from 'primeng/primeng';
+import {CarouselModule, GalleriaModule, LightboxModule} from 'primeng/primeng';
 import { GalleriaPngComponent } from './galleria-png/galleria-png.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import {TOKENS_PROVIDERS} from './carousel/country/countries.tokens';
+import {DataAccessService} from './carousel/country/data-access.service';
+import {CountryComponent} from './carousel/country/country.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,8 @@ import { GalleriaPngComponent } from './galleria-png/galleria-png.component';
     LoginComponent,
     FlexboxComponent,
     GalleriaPngComponent,
+    CarouselComponent,
+    CountryComponent
   ],
   imports: [
     BrowserModule,
@@ -83,9 +89,10 @@ import { GalleriaPngComponent } from './galleria-png/galleria-png.component';
 
     // Primeng
     GalleriaModule,
-    LightboxModule
+    LightboxModule,
+    CarouselModule
   ],
-  providers: [AuthenticateService, ChatService],
+  providers: [AuthenticateService, ChatService, ...TOKENS_PROVIDERS, DataAccessService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

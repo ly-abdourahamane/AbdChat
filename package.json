@@ -25,6 +25,7 @@
     "@angular/router": "^5.2.7",
     "angularfire2": "^5.0.0-rc.5-next",
     "core-js": "^2.4.1",
+    "countries-data": "^1.0.1",
     "emoji-mart": "^2.5.0",
     "firebase": "^4.10.0",
     "font-awesome": "^4.7.0",
