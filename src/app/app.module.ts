@@ -9,7 +9,7 @@ import {
   MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
-  MatSelectModule,
+  MatSelectModule, MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -46,6 +46,7 @@ import { ShareModule } from '@ngx-share/core';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {ShareButtonModule} from '@ngx-share/button';
 import { FooterComponent } from './footer/footer.component';
+import { SigallComponent } from './sigall/sigall.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { FooterComponent } from './footer/footer.component';
     GalleriaPngComponent,
     CarouselComponent,
     CountryComponent,
-    FooterComponent
+    FooterComponent,
+    SigallComponent
   ],
   imports: [
     BrowserModule,
@@ -93,6 +95,7 @@ import { FooterComponent } from './footer/footer.component';
     MatSelectModule,
     MatGridListModule,
     MatListModule,
+    MatTabsModule,
 
     // Primeng
     GalleriaModule,

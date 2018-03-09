@@ -26,6 +26,9 @@
           <mat-form-field class="example-full-width">
             <input matInput [formControl]="emailFormControl" placeholder="Adresse mail" value=""
                    [(ngModel)]="email" type="email" name="email">
+            <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+              <mat-icon>close</mat-icon>
+            </button>
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
               S'il vous plaît, saisissez une adresse mail valid
             </mat-error>
