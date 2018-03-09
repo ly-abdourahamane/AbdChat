@@ -9,7 +9,7 @@ import {
   MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
-  MatSelectModule,
+  MatSelectModule, MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -34,7 +34,7 @@ import {ChatService} from './shared/service/chat.service';
 import {AuthenticateService} from './shared/service/authenticate.service';
 import { FlexboxComponent } from './layout/flexbox/flexbox.component';
 import {EmojiPickerModule} from 'ng-emoji-picker';
-import {CarouselModule, GalleriaModule, LightboxModule} from 'primeng/primeng';
+import {CarouselModule, GalleriaModule, LightboxModule, SidebarModule} from 'primeng/primeng';
 import { GalleriaPngComponent } from './galleria-png/galleria-png.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import {TOKENS_PROVIDERS} from './carousel/country/countries.tokens';
@@ -90,7 +90,8 @@ import {CountryComponent} from './carousel/country/country.component';
     // Primeng
     GalleriaModule,
     LightboxModule,
-    CarouselModule
+    CarouselModule,
+    SidebarModule,
   ],
   providers: [AuthenticateService, ChatService, ...TOKENS_PROVIDERS, DataAccessService],
   bootstrap: [AppComponent]

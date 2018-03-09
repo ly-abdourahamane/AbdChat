@@ -16,9 +16,13 @@ export class ToolbarComponent implements OnInit {
   userEmail: string;
   displayName: string;
 
+  visibleSidebar: boolean;
+
   constructor(private authenticateService: AuthenticateService, private router: Router) { }
 
   ngOnInit() {
+    this.visibleSidebar = false;
+
     this.user = this.authenticateService.authUser();
     this.user.subscribe(user => {
       if (user) {

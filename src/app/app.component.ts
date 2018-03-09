@@ -11,5 +11,4 @@ import { Emoji } from 'emoji-mart';
 })
 export class AppComponent {
   title = 'comp';
-
 }

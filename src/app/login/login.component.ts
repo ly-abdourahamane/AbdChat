@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
   password: string;
   errorMsg: string;
 
-  constructor(private authenticateService: AuthenticateService, private router: Router) { }
+  constructor(private authenticateService: AuthenticateService, private router: Router) {
+    /*if (this.authenticateService.authUser()) {
+      this.router.navigate(['chat']);
+    }*/
+  }
 
   ngOnInit() {
   }

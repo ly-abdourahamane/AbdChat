@@ -9,7 +9,11 @@
     </button>
 
     <button mat-button>
-      <span>Contact</span>
+      <a><span>Contact</span></a>
+    </button>
+
+    <button mat-button (click)="visibleSidebar = true">
+      <span id="friends" *ngIf="(user|async)?.uid">Amis</span>
     </button>
 
     <button mat-icon-button>
@@ -52,3 +56,11 @@
   </mat-toolbar-row>
 </mat-toolbar>
 </div>
+
+
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+  <h3 style="font-weight:normal">Amis connectés</h3>
+  <div #scroller class="call-out">
+    <comp-user-list></comp-user-list>
+  </div>
+</p-sidebar>
