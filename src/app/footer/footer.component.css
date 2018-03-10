@@ -1,0 +1,19 @@
+.bg-4 {
+  background-color: #f4f3f4;
+  color: #fff;
+}
+
+.container-footer {
+  padding-top: 10px;
+  padding-bottom: 30px;
+  background-color:#f0f3f5;
+}
+
+.fixed-footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:90px;
+  width:100%;
+  background:#999999;
+}

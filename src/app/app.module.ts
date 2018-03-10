@@ -32,21 +32,33 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 import {ChatService} from './shared/service/chat.service';
 import {AuthenticateService} from './shared/service/authenticate.service';
-import { FlexboxComponent } from './layout/flexbox/flexbox.component';
+import {FlexboxComponent} from './layout/flexbox/flexbox.component';
 import {EmojiPickerModule} from 'ng-emoji-picker';
-import {CarouselModule, GalleriaModule, LightboxModule, SidebarModule} from 'primeng/primeng';
-import { GalleriaPngComponent } from './galleria-png/galleria-png.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import {GalleriaPngComponent} from './galleria-png/galleria-png.component';
+import {CarouselComponent} from './carousel/carousel.component';
 import {TOKENS_PROVIDERS} from './carousel/country/countries.tokens';
 import {DataAccessService} from './carousel/country/data-access.service';
 import {CountryComponent} from './carousel/country/country.component';
 
 
-import { ShareModule } from '@ngx-share/core';
+import {ShareModule} from '@ngx-share/core';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {ShareButtonModule} from '@ngx-share/button';
-import { FooterComponent } from './footer/footer.component';
-import { SigallComponent } from './sigall/sigall.component';
+import {FooterComponent} from './footer/footer.component';
+import {SigallComponent} from './sigall/sigall.component';
+import {GMapModule} from 'primeng/gmap';
+import {GmapComponent} from './gmap/gmap.component';
+import {GrowlModule} from 'primeng/growl';
+
+import {
+  CarouselModule,
+  CheckboxModule,
+  GalleriaModule,
+  LightboxModule,
+  SidebarModule
+} from 'primeng/primeng';
+import {DialogModule} from 'primeng/dialog';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -65,7 +77,8 @@ import { SigallComponent } from './sigall/sigall.component';
     CarouselComponent,
     CountryComponent,
     FooterComponent,
-    SigallComponent
+    SigallComponent,
+    GmapComponent
   ],
   imports: [
     BrowserModule,
@@ -74,10 +87,10 @@ import { SigallComponent } from './sigall/sigall.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
 
-/*    Ng2EmojiModule,
-    Ng2EmojiModule.forRoot(),*/
+    /*    Ng2EmojiModule,
+        Ng2EmojiModule.forRoot(),*/
     EmojiPickerModule,
-   // PickerModule,
+    // PickerModule,
 
     AngularFireModule,
     AngularFireDatabaseModule,
@@ -103,6 +116,11 @@ import { SigallComponent } from './sigall/sigall.component';
     LightboxModule,
     CarouselModule,
     SidebarModule,
+    GMapModule,
+    GrowlModule,
+    CheckboxModule,
+    DialogModule,
+    ButtonModule,
 
     HttpClientModule,      // (Required) for share counts
     HttpClientJsonpModule, // (Optional) For linkedIn & Tumblr counts

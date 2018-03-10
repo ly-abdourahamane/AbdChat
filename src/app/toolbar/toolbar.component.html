@@ -50,30 +50,49 @@
       <span id="displayName" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
     </span>
 
+    <button *ngIf="!(user|async)?.uid" mat-button>
+      <strong>
+        <a href="#" (click)="login()">Connexion</a>
+      </strong>
+    </button>
+
+    <button *ngIf="!(user|async)?.uid" mat-button>
+      <strong>
+        <a routerLink="/inscription">Créer un compte</a>
+      </strong>
+    </button>
+
+    <button *ngIf="(user|async)?.uid" mat-button>
+      <strong>
+        <a href="#" (click)="logout()">Déconnexion</a>
+      </strong>
+    </button>
 
     <!--MENU DE CONNEXION -->
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <i matTooltip="Connectez vous ou créez un compte" class="material-icons">account_circle</i>
+    <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="(user|async)?.uid">
+      <i matTooltip="Accedez à vos paramètres" class="material-icons">account_circle</i>
     </button>
+
     <mat-menu #menu="matMenu">
 
-      <button mat-menu-item *ngIf="!(user|async)?.uid">
-        <i class="material-icons">fingerprint</i>
-        <span>
-         <a href="#" (click)="login()">Connexion</a>
-        </span>
-      </button>
-
-      <button mat-menu-item *ngIf="!(user|async)?.uid">
-        <i class="material-icons">perm_identity</i>
-        <span>
-          <a routerLink="/inscription">S'inscrire</a>
-        </span>
-      </button>
-
       <button mat-menu-item *ngIf="(user|async)?.uid">
-        <mat-icon>notifications_off</mat-icon>
+        <mat-icon>exit_to_app</mat-icon>
         <span> <a href="#" (click)="logout()">Deconnexion</a> </span>
+      </button>
+
+      <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+        <mat-icon>mode_edit</mat-icon>
+        <span> <a href="#" (click)="logout()">Paramètres</a> </span>
+      </button>
+
+      <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+        <mat-icon>settings</mat-icon>
+        <span> <a href="#" (click)="logout()">Mon Profile</a> </span>
+      </button>
+
+      <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+        <mat-icon>delete</mat-icon>
+        <span> <a href="#" (click)="logout()">Supprimer Mon Compte</a> </span>
       </button>
 
     </mat-menu>
@@ -81,9 +100,9 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-  <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
-    <h3 style="font-weight:normal">Amis connectés</h3>
-    <div #scroller class="call-out">
-      <comp-user-list></comp-user-list>
-    </div>
-  </p-sidebar>
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+  <h3 style="font-weight:normal">Amis connectés</h3>
+  <div #scroller class="call-out">
+    <comp-user-list></comp-user-list>
+  </div>
+</p-sidebar>
