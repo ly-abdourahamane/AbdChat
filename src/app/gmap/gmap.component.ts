@@ -26,7 +26,7 @@ export class GmapComponent implements OnInit {
   ngOnInit() {
     this.options = {
       center: {lat: 43.600000, lng: 1.433333},
-      zoom: 7
+      zoom: 11
     };
 
     this.initOverlays();
@@ -86,7 +86,7 @@ export class GmapComponent implements OnInit {
           fillColor: '#1976D2',
           fillOpacity: 0.35,
           strokeWeight: 1,
-          radius: 40000
+          radius: 1500
         }),
         new google.maps.Polyline({
           path: [{lat: 36.86149, lng: 30.63743}, {lat: 36.86341, lng: 30.72463}],

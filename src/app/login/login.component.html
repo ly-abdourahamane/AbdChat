@@ -1,45 +1,41 @@
-<mat-grid-list cols="4" rowHeight="100px">
+<h2>Identifiez vous</h2>
 
-  <mat-grid-tile [colspan]="4" [rowspan]="3">
+<form class="example-form" #signInForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput required
+           placeholder="Adresse mail" value=""
+           [(ngModel)]="email"
+           type="email"
+           name="email">
+  </mat-form-field>
 
-    <mat-card class="example-card">
+  <mat-form-field class="example-full-width">
+    <input matInput required
+           placeholder="Mot de passe"
+           type="password"
+           [(ngModel)]="password"
+           name="password">
+  </mat-form-field>
+</form>
 
-      <mat-card-header>
-        <mat-card-title><h2>Identifiez vous</h2></mat-card-title>
-      </mat-card-header>
+<div class="ui-g">
+  <div class="ui-g">
+    <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
+            [disabled]="!signInForm.form.valid">Connexion
+    </button>
+  </div>
 
-      <mat-card-content>
-        <form class="example-form" #signInForm="ngForm">
-          <mat-form-field class="example-full-width">
-            <input matInput required
-                   placeholder="Adresse mail" value=""
-                   [(ngModel)]="email"
-                   type="email"
-                   name="email">
-          </mat-form-field>
+  <div class="ui-g-12"></div>
 
-          <mat-form-field class="example-full-width">
-            <input matInput required
-                   placeholder="Mot de passe"
-                   type="password"
-                   [(ngModel)]="password"
-                   name="password">
-          </mat-form-field>
-        </form>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
-                [disabled]="!signInForm.form.valid">Connexion</button>
+  <div class="ui-g">
+    <button mat-raised-button color="primary" (click)="signInWithFacebook()">Connexion avec Facebook</button>
+  </div>
 
-        <button mat-raised-button color="primary" (click)="signInWithFacebook()">Facebook</button>
+  <div class="ui-g-12"></div>
 
-        <button mat-raised-button color="warn" (click)="signInWithGoogle()">Google</button>
-
-      </mat-card-actions>
-    </mat-card>
-
-  </mat-grid-tile>
-
-</mat-grid-list>
+  <div class="ui-g">
+    <button mat-raised-button color="warn" (click)="signInWithGoogle()">Connexion avec Google</button>
+  </div>
+</div>
 
 

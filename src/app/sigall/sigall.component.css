@@ -4,3 +4,27 @@
   background: white;
 }
 
+/* Définition des marges */
+.call-outs-container {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+
+  /* align-items: flex-start; */ /*permet aussi l'alignement*/
+}
+
+/* permet d'ajouter les responsives (affichage pour les portables, tablettes, ..)*/
+@media (min-width: 900px) {
+  .call-outs-container {
+    display: flex;
+    justify-content: space-between; /*permet l'alignement des composants*/
+  }
+}
+
+.call-out {
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  flex-basis: 80%;
+  /* margin-right: 40px;*/
+}
+

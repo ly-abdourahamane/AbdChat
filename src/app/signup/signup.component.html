@@ -1,63 +1,48 @@
-<br>
-<mat-grid-list cols="4" rowHeight="100px">
+<h2>Créer un compte</h2>
 
-  <mat-grid-tile [colspan]="4" [rowspan]="3">
+<form class="example-form" #signUpForm="ngForm">
 
-    <mat-card class="example-card">
+  <mat-form-field class="example-full-width">
+    <input matInput required
+           placeholder="Nom" value=""
+           [(ngModel)]="displayName"
+           type="text"
+           name="displayName">
+    <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="displayName=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
 
-      <mat-card-header>
-        <mat-card-title><h2>Créer un compte</h2></mat-card-title>
-      </mat-card-header>
+  <mat-form-field class="example-full-width">
+    <input matInput [formControl]="emailFormControl" placeholder="Adresse mail" value=""
+           [(ngModel)]="email" type="email" name="email">
+    <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      S'il vous plaît, saisissez une adresse mail valid
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email est <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
 
-      <mat-card-content>
-        <form class="example-form" #signUpForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput required
+           placeholder="Mot de passe"
+           [type]="hide ? 'password' : 'text'"
+           [(ngModel)]="password"
+           name="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+</form>
 
-          <mat-form-field class="example-full-width">
-            <input matInput required
-                   placeholder="Nom" value=""
-                   [(ngModel)]="displayName"
-                   type="text"
-                   name="displayName">
-            <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="displayName=''">
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <input matInput [formControl]="emailFormControl" placeholder="Adresse mail" value=""
-                   [(ngModel)]="email" type="email" name="email">
-            <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
-              <mat-icon>close</mat-icon>
-            </button>
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-              S'il vous plaît, saisissez une adresse mail valid
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-              Email est <strong>obligatoire</strong>
-            </mat-error>
-          </mat-form-field>
+<button mat-raised-button color="primary"
+        [disabled]="!signUpForm.form.valid || emailFormControl.hasError('email') && !emailFormControl.hasError('required')"
+        type="submit" (click)="signUp()"> S'inscrire
+</button>
 
-          <mat-form-field class="example-full-width">
-            <input matInput required
-                   placeholder="Mot de passe"
-                   [type]="hide ? 'password' : 'text'"
-                   [(ngModel)]="password"
-                   name="password">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-          </mat-form-field>
-        </form>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary"
-                [disabled]="!signUpForm.form.valid || emailFormControl.hasError('email') && !emailFormControl.hasError('required')"
-                type="submit" (click)="signUp()"> S'inscrire
-        </button>
-      </mat-card-actions>
-    </mat-card>
-
-  </mat-grid-tile>
-
-</mat-grid-list>
 
 
 
