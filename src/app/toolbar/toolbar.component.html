@@ -1,40 +1,40 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div class="alert-heading">
+    <div class="alert-heading" style="font-size:1.5em;">
       <a routerLink="/"><i class="material-icons">home</i> </a>
     </div>
 
-    <div style="font-size:1.5em; color:#E1F5FE">
+    <div style="font-size:1.5em;">
       <a target="_blank" rel="noopener" href="https://www.facebook.com/rahamane.ly">
         <i matTooltip="Contactez moi sur Facebook" class="fab fa-facebook-square"></i>
       </a>
     </div>
 
-    <div style="font-size:1.5em; color:#E1F5FE">
+    <div style="font-size:1.5em;">
       <a target="_blank" rel="noopener" href="https://twitter.com/">
         <i matTooltip="Contactez moi sur Twitter" class="fab fa-twitter-square"></i>
       </a>
     </div>
 
-    <div style="font-size:1.5em; color:#E1F5FE">
+    <div style="font-size:1.5em;">
       <a target="_blank" rel="noopener" href="https://github.com/ly-abdourahamane">
         <i matTooltip="Consultez mes dépots github" class="fab fa-github-square"></i>
       </a>
     </div>
 
-    <div style="font-size:1.5em; color:#E1F5FE">
+    <div style="font-size:1.5em;">
       <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/abdourahamane-ly-111300121/">
         <i matTooltip="Ajoutez moi sur LinkedIn" class="fab fa-linkedin"></i>
       </a>
     </div>
 
-    <div style="font-size:1.5em; color:#E1F5FE">
+    <div style="font-size:1.5em;">
       <a target="_blank" rel="noopener" href="https://plus.google.com/discover">
         <i class="fab fa-google-plus-square"></i>
       </a>
     </div>
 
-    <div style="font-size:1.5em; color:#E1F5FE">
+    <div style="font-size:1.5em;">
       <a target="_blank" rel="noopener" href="https://bitbucket.org/ab_dou/">
         <i matTooltip="Mes projets sur Bitbucket" class="fab fa-bitbucket"></i>
       </a>
@@ -52,19 +52,19 @@
 
     <button *ngIf="!(user|async)?.uid" mat-button>
       <strong>
-        <a href="#" (click)="login()">Connexion</a>
+        <a href="#" (click)="login()"><h3>Connexion</h3></a>
       </strong>
     </button>
 
     <button *ngIf="!(user|async)?.uid" mat-button>
       <strong>
-        <a routerLink="/inscription">Créer un compte</a>
+        <a routerLink="/inscription"><h3>Créer un compte</h3></a>
       </strong>
     </button>
 
     <button *ngIf="(user|async)?.uid" mat-button>
       <strong>
-        <a href="#" (click)="logout()">Déconnexion</a>
+        <a href="#" (click)="logout()"><h3>Déconnexion</h3></a>
       </strong>
     </button>
 

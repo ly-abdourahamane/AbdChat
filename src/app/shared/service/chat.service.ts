@@ -53,7 +53,7 @@ export class ChatService {
         this.creationTime = auth.metadata.creationTime;
         this.lastSignInTime = auth.metadata.lastSignInTime;
       }
-    });
+    }, error2 => console.log(error2));
   }
 
   sendMessage(message: string) {
