@@ -86,7 +86,7 @@ export class GmapComponent implements OnInit {
           fillColor: '#1976D2',
           fillOpacity: 0.35,
           strokeWeight: 1,
-          radius: 1500
+          radius: 80000
         }),
         new google.maps.Polyline({
           path: [{lat: 36.86149, lng: 30.63743}, {lat: 36.86341, lng: 30.72463}],

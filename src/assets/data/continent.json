@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Afrique",
+    "map": "https://commons.wikimedia.org/wiki/Africa_-_Afrique_-_%D8%A3%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7#/media/File:Blank_Map-Africa.svg"
+    "nbCountry": 54
+  },
+  {
+    "name": "Amerique",
+    "map": "",
+    "nbCountry": 35
+  },
+  {
+    "name": "Asie",
+    "map": "https://commons.wikimedia.org/wiki/Asia#/media/File:Asia_satellite_orthographic.jpg",
+    "nbCountry": 47
+  },
+  {
+    "name": "Europe",
+    "map": "https://commons.wikimedia.org/wiki/Europe_-_Europa#/media/File:Europa_zemljevid.png",
+    "nbCountry": 45
+  },
+  {
+    "name": "Ocianie",
+    "map": "https://commons.wikimedia.org/wiki/Atlas_of_Oceania#/media/File:Oceania_satellite.jpg",
+    "nbCountry": 14
+  }
+]

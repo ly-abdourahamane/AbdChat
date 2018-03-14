@@ -5,6 +5,10 @@ import {CountryComponent} from './app/carousel/country/country.component';
 import {SigallComponent} from './app/sigall/sigall.component';
 
 export const appRoutes: Routes = [
+
+  {path: 'forum', loadChildren : 'app/forum/forum.module#ForumModule'},
+
+
   {path: 'inscription', component: SigallComponent},
   {path: 'connexion', component: SigallComponent},
   {path: 'chat', component: ChatRoomComponent},
