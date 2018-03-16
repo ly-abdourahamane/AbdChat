@@ -17,3 +17,53 @@
   width:100%;
   background:#999999;
 }
+
+/* Définition des marges */
+.call-outs-container {
+  margin: 40px auto 0 auto;
+  background-color: grey;
+}
+
+@media (min-width: 900px) {
+  .call-outs-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.call-out {
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  flex-basis: 20%;
+  /* margin-right: 40px;*/
+}
+
+/*.call-out:last-child {
+  margin-right: 0; !* positionne le dernier composant à la fin*!
+}*/
+
+.call-out:nth-child(1) {
+ /* background-color: red;*/
+}
+
+.call-out:nth-child(2) {
+  /*background-color: yellow;*/
+}
+.call-out:nth-child(3) {
+  /*background-color: green;*/
+}
+
+
+i {
+  margin-right: 15px;
+}
+
+a:link
+{
+  text-decoration:none;
+}
+
+.title-color {
+  color: white;
+}
