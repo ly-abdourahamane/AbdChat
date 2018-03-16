@@ -22,11 +22,11 @@
       </strong>
     </button>
 
+    <span class="spacer"></span>
+
     <button mat-button (click)="visibleSidebar = true">
       <span matTooltip="Affiche les utilisateurs" id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
     </button>
-
-    <span class="spacer"></span>
 
     <div fxShow="true" fxHide.lt-md="true">
       <span id="displayName" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
@@ -142,6 +142,10 @@
     </mat-sidenav>
   </mat-sidenav-container>
 </p-sidebar>
+
+<!--
+FORMULAIRE DE SAISIE DE MESSAGE
+-->
 
   <!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
   <router-outlet></router-outlet>
