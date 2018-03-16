@@ -4,41 +4,11 @@
       <a routerLink="/"><i class="material-icons">home</i> </a>
     </div>
 
-    <div style="font-size:1.5em;">
-      <a target="_blank" rel="noopener" href="https://www.facebook.com/rahamane.ly">
-        <i matTooltip="Contactez moi sur Facebook" class="fab fa-facebook-square"></i>
-      </a>
-    </div>
-
-    <div style="font-size:1.5em;">
-      <a target="_blank" rel="noopener" href="https://twitter.com/">
-        <i matTooltip="Contactez moi sur Twitter" class="fab fa-twitter-square"></i>
-      </a>
-    </div>
-
-    <div style="font-size:1.5em;">
-      <a target="_blank" rel="noopener" href="https://github.com/ly-abdourahamane">
-        <i matTooltip="Consultez mes dépots github" class="fab fa-github-square"></i>
-      </a>
-    </div>
-
-    <div style="font-size:1.5em;">
-      <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/abdourahamane-ly-111300121/">
-        <i matTooltip="Ajoutez moi sur LinkedIn" class="fab fa-linkedin"></i>
-      </a>
-    </div>
-
-    <div style="font-size:1.5em;">
-      <a target="_blank" rel="noopener" href="https://plus.google.com/discover">
-        <i class="fab fa-google-plus-square"></i>
-      </a>
-    </div>
-
-    <div style="font-size:1.5em;">
-      <a target="_blank" rel="noopener" href="https://bitbucket.org/ab_dou/">
-        <i matTooltip="Mes projets sur Bitbucket" class="fab fa-bitbucket"></i>
-      </a>
-    </div>
+    <button *ngIf="!(user|async)?.uid" mat-button>
+      <strong>
+        <a href="#"><h3>Me Contacter</h3></a>
+      </strong>
+    </button>
 
     <button mat-button (click)="visibleSidebar = true">
       <span matTooltip="Affiche les utilisateurs" id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
@@ -97,6 +67,11 @@
 
     </mat-menu>
 
+    <div fxShow="true" fxHide.xm="true">
+      <button mat-icon-button color="white" (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -106,3 +81,20 @@
     <comp-user-list></comp-user-list>
   </div>
 </p-sidebar>
+
+
+<p-sidebar [(visible)]="visibleMenu" [baseZIndex]="10000">
+  <h3 style="font-weight:normal">Amis connectés</h3>
+  <div #scroller class="call-out">
+    <comp-user-list></comp-user-list>
+  </div>
+</p-sidebar>
+
+
+<mat-sidenav-container fxFlexFill cdkScrollable class="example-container">
+  <mat-sidenav #sidenav fxLayout="column">
+    <a (click)="sidenav.close()" href="#" mat-button>Fermer</a>
+
+    <a routerLink="/"><i class="material-icons">home</i> </a>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -9,7 +9,7 @@ import {
   MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
-  MatSelectModule, MatTabsModule,
+  MatSelectModule, MatSidenavModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 
@@ -59,6 +59,7 @@ import {
 } from 'primeng/primeng';
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import {ButtonModule} from 'primeng/button';
     MatListModule,
     MatTabsModule,
     MatTooltipModule,
+    MatSidenavModule,
 
     // Primeng
     GalleriaModule,
@@ -121,6 +123,9 @@ import {ButtonModule} from 'primeng/button';
     CheckboxModule,
     DialogModule,
     ButtonModule,
+
+    // flex layout
+    FlexLayoutModule,
 
     HttpClientModule,      // (Required) for share counts
     HttpClientJsonpModule, // (Optional) For linkedIn & Tumblr counts

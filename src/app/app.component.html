@@ -1,4 +1,6 @@
+<!--
 <comp-toolbar></comp-toolbar>
+-->
 
 <!--  <emoji-mart title="Pick your emoji…" emoji="point_up"></emoji-mart>
   <emoji-mart set="emojione"></emoji-mart>
@@ -7,10 +9,148 @@
   <emoji-mart [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }">
   </emoji-mart>-->
 
-<div class="print-data">
-  <router-outlet></router-outlet>
+<div style="height: 100vh;">
+  <mat-toolbar color="primary">
+
+    <button mat-button>
+      <a href="#"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
+    </button>
+
+    <button mat-button>
+      <strong>
+        <a href="#" matTooltip="Contactez moi par mail" (click)="contactMe()"><h3>Me Contacter</h3></a>
+      </strong>
+    </button>
+
+    <span class="spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md="true">
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+      <button mat-button (click)="visibleSidebar = true">
+        <span matTooltip="Affiche les utilisateurs" id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
+      </button>
+
+
+      <span id="displayName" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
+
+      <button *ngIf="!(user|async)?.uid" mat-button>
+        <strong>
+          <a href="#" (click)="login()"><h3>Connexion</h3></a>
+        </strong>
+      </button>
+
+      <button *ngIf="!(user|async)?.uid" mat-button>
+        <strong>
+          <a routerLink="/inscription"><h3>Créer un compte</h3></a>
+        </strong>
+      </button>
+
+      <button *ngIf="(user|async)?.uid" mat-button>
+        <strong>
+          <a href="#" (click)="logout()"><h3>Déconnexion</h3></a>
+        </strong>
+      </button>
+
+      <!-- MENU DE CONNEXION -->
+      <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="(user|async)?.uid">
+        <i matTooltip="Accedez à vos paramètres" class="material-icons">account_circle</i>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="(user|async)?.uid">
+          <mat-icon>exit_to_app</mat-icon>
+          <span> <a href="#" (click)="logout()">Deconnexion</a> </span>
+        </button>
+
+        <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+          <mat-icon>mode_edit</mat-icon>
+          <span> <a href="#" (click)="logout()">Paramètres</a> </span>
+        </button>
+
+        <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+          <mat-icon>settings</mat-icon>
+          <span> <a href="#" (click)="logout()">Mon Profile</a> </span>
+        </button>
+
+        <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+          <mat-icon>delete</mat-icon>
+          <span> <a href="#" (click)="logout()">Supprimer Mon Compte</a> </span>
+        </button>
+      </mat-menu>
+
+    </div>
+
+    <div fxShow="true" fxHide.gt-xs="true">
+      <button mat-icon-button color="white" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <!--AFFICHAGE DU MENU DU GAUCHE POUR LES PETITS ECRANS-->
+  <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav fxLayout="column">
+      <div fxLayout="column">
+
+        <button mat-menu-item>
+          <span>
+          <a href="#" matTooltip="Page d'accueil">Accueil</a>
+            </span>
+        </button>
+
+        <button mat-menu-item>
+          <span>
+            <a href="#" matTooltip="Contactez moi par mail" (click)="contactMe()">Me Contacter</a>
+          </span>
+        </button>
+
+        <button *ngIf="!(user|async)?.uid" mat-menu-item>
+          <span>
+            <a href="#" (click)="login()">Connexion</a>
+          </span>
+        </button>
+
+        <button *ngIf="!(user|async)?.uid" mat-menu-item>
+          <span>
+            <a routerLink="/inscription">Créer un compte</a>
+          </span>
+        </button>
+
+        <button *ngIf="(user|async)?.uid" mat-menu-item>
+          <span>
+            <a href="#" (click)="logout()">Déconnexion</a>
+          </span>
+        </button>
+
+        <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+          <span> <a href="#" (click)="logout()">Paramètres</a> </span>
+        </button>
+
+        <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+          <span> <a href="#" (click)="logout()">Mon Profile</a> </span>
+        </button>
+
+        <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+          <span> <a href="#" (click)="logout()">Supprimer Mon Compte</a> </span>
+        </button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+     <!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 
-<div class="footer">
-  <comp-footer></comp-footer>
-</div>
+
+<p-sidebar [(visible)]="visibleSidebar" position="right" [baseZIndex]="10000">
+  <h3 style="font-weight:normal">Amis connectés</h3>
+  <div #scroller class="call-out">
+    <comp-user-list></comp-user-list>
+  </div>
+</p-sidebar>
+
+<!-- <div class="footer">
+   <comp-footer></comp-footer>
+ </div>-->
+

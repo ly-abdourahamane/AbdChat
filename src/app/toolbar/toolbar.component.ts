@@ -21,6 +21,7 @@ export class ToolbarComponent implements OnInit {
   displayName: string;
 
   visibleSidebar: boolean;
+  visibleMenu: boolean;
 
   userName: string;
 
@@ -40,6 +41,7 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.visibleSidebar = false;
+    this.visibleMenu = false;
 
     this.user = this.authenticateService.authUser();
 
