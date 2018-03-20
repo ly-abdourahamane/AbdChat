@@ -1,7 +1,7 @@
 <h2>Identifiez vous</h2>
 
 <form class="example-form" #signInForm="ngForm">
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="full-width">
     <input matInput required
            placeholder="Adresse mail" value=""
            [(ngModel)]="email"
@@ -9,15 +9,29 @@
            name="email">
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="full-width">
     <input matInput required
            placeholder="Mot de passe"
            type="password"
            [(ngModel)]="password"
            name="password">
   </mat-form-field>
+
+  <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
+          [disabled]="!signInForm.form.valid">Connexion
+  </button>
+
+  <div class="align-text">ou</div>
+
+  <button mat-raised-button color="primary" (click)="signInWithFacebook()">Connexion avec Facebook</button>
+
+  <div class="align-text">ou</div>
+
+  <button mat-raised-button color="warn" (click)="signInWithGoogle()">Connexion avec Google</button>
+
 </form>
 
+<!--
 <div class="ui-g">
   <div class="ui-g">
     <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
@@ -39,3 +53,4 @@
 </div>
 
 
+-->

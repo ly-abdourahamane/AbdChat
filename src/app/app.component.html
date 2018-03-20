@@ -150,9 +150,6 @@ FORMULAIRE DE SAISIE DE MESSAGE
   <!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
   <router-outlet></router-outlet>
 
-<!--AFFICHAGE DU FOOTER-->
-<comp-footer></comp-footer>
-
 <p-sidebar [(visible)]="visibleSidebar" position="right" [baseZIndex]="10000">
   <h3 style="font-weight:normal">Amis connectés</h3>
   <div #scroller class="call-out">
@@ -160,7 +157,9 @@ FORMULAIRE DE SAISIE DE MESSAGE
   </div>
 </p-sidebar>
 
-<!-- <div class="footer">
-   <comp-footer></comp-footer>
- </div>-->
+<!--AFFICHAGE DU FOOTER-->
+<comp-footer></comp-footer>
+
+
+
 

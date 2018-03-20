@@ -8,10 +8,13 @@
   width: 100%;
 }
 
-.example-full-width {
+.full-width {
   width: 100%;
 }
 
 .mat-raised-button {
-  width: 380px;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
+
