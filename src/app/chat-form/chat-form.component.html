@@ -1,15 +1,13 @@
-<mat-card class="example-card container-form fixed-form">
+<mat-card>
   <mat-card-content>
-    <p>
-      <mat-form-field>
-        <textarea matInput placeholder="Saisissez votre message" value="" name="message"
+    <mat-form-field>
+        <textarea matInput [rows]="3" placeholder="Saisissez votre message" value="" name="message"
                [(ngModel)]="message"
                   (keydown)="handleSubmit($event)"></textarea>
       </mat-form-field>
-      <button (click)="send()" mat-raised-button color="primary">
+      <button mat-mini-fab color="primary" (click)="send()">
         <i class="material-icons">send</i>
       </button>
-    </p>
   </mat-card-content>
 </mat-card>
 
