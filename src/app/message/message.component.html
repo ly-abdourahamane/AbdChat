@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{userEmail}}</mat-card-title>
@@ -20,7 +20,7 @@
       </button>
     </div>
 
-    <div *ngIf="nbLike==0">Personne votre message</div>
+    <div *ngIf="nbLike==0">Personne n'a aimé votre message</div>
     <div *ngIf="nbLike==1"><span class="w3-badge">{{nbLike}}</span> Utilisateur a aimé votre message</div>
     <div *ngIf="nbLike >1"><span class="w3-badge">{{nbLike}}</span> Utilisateurs ont aimé votre message</div>
 

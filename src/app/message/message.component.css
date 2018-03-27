@@ -1,4 +1,4 @@
-.example-card {
+.mat-card  {
   max-width: 600px;
   background-color: #dddddd;
 }
@@ -7,4 +7,3 @@
   background-image: url('../../assets/image/profile.jpg');
   background-size: cover;
 }
-

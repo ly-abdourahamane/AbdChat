@@ -3,11 +3,13 @@ import {ChatRoomComponent} from './app/chat-room/chat-room.component';
 import {FlexboxComponent} from './app/layout/flexbox/flexbox.component';
 import {CountryComponent} from './app/carousel/country/country.component';
 import {SigallComponent} from './app/sigall/sigall.component';
+import {UploadComponent} from './app/upload/upload.component';
 
 export const appRoutes: Routes = [
 
   {path: 'forum', loadChildren : 'app/forum/forum.module#ForumModule'},
 
+  {path: 'upload', component: UploadComponent},
 
   {path: 'inscription', component: SigallComponent},
   {path: 'connexion', component: SigallComponent},

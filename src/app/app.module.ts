@@ -60,6 +60,8 @@ import {
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { UploadComponent } from './upload/upload.component';
+import {AngularFireStorageModule} from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     CountryComponent,
     FooterComponent,
     SigallComponent,
-    GmapComponent
+    GmapComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +100,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
 
     // MATERIAL
     MatMenuModule,

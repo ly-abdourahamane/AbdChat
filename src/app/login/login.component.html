@@ -2,19 +2,26 @@
 
 <form class="example-form" #signInForm="ngForm">
   <mat-form-field class="full-width">
-    <input matInput required
-           placeholder="Adresse mail" value=""
-           [(ngModel)]="email"
-           type="email"
-           name="email">
+    <input matInput [formControl]="emailFormControl" placeholder="Adresse mail" value=""
+           [(ngModel)]="email" type="email" name="email">
+    <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      S'il vous plaît, saisissez une adresse mail valide
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email est <strong>obligatoire</strong>
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="full-width">
     <input matInput required
            placeholder="Mot de passe"
-           type="password"
+           [type]="hide ? 'password' : 'text'"
            [(ngModel)]="password"
            name="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
 
   <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
@@ -23,11 +30,11 @@
 
   <div class="align-text">ou</div>
 
-  <button mat-raised-button color="primary" (click)="signInWithFacebook()">Connexion avec Facebook</button>
+  <button mat-raised-button color="primary" (click)="signInWithFacebook()" disabled>Connexion avec Facebook</button>
 
   <div class="align-text">ou</div>
 
-  <button mat-raised-button color="warn" (click)="signInWithGoogle()">Connexion avec Google</button>
+  <button mat-raised-button color="warn" (click)="signInWithGoogle()" disabled>Connexion avec Google</button>
 
 </form>
 

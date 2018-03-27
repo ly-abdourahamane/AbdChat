@@ -11,11 +11,12 @@ comp-user-list {
 }
 
 
-/* ***************************/
+/* Définition des marges */
 .call-outs-container {
   max-width: 1400px;
-  margin: 10px auto 0 auto;
+  margin: 40px auto 0 auto;
 
+  /* align-items: flex-start; */ /*permet aussi l'alignement*/
 }
 
 /* permet d'ajouter les responsives (affichage pour les portables, tablettes, ..)*/
@@ -27,17 +28,19 @@ comp-user-list {
 }
 
 .call-out {
-  padding: 20px;
+  padding: 0px;
   box-sizing: border-box;
-  margin-bottom: 90px;
-  flex-basis: 30%;
+  margin-bottom: 20px;
+  flex-basis: 80%;
+  /* margin-right: 40px;*/
 }
 
 .call-out:nth-child(1) {
-  order: 2;
+
 }
 
 .call-out:nth-child(2) {
+  order: 1;
 }
 
 /* send message */
