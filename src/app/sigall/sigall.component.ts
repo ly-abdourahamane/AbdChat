@@ -13,6 +13,17 @@ export class SigallComponent implements OnInit {
   dangerousVideoUrl: string;
   videoUrl: SafeResourceUrl;
 
+  disciplines = [
+    {name: 'Algorithmique', path: '/algorithmique'},
+    {name: 'Comflex', path: '/comflex'},
+    {name: 'Java EE', path: '/java-ee'},
+    {name: 'Mapi', path: '/mapi'},
+    {name: 'MCO', path: '/modelisation-objet'},
+    {name: 'TLC', path: 'tlc'},
+    {name: 'Prog parallèle', path: 'programmation-parallele'},
+    {name: 'Angular', path: 'angular'}
+  ];
+
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
