@@ -62,6 +62,7 @@ import {ButtonModule} from 'primeng/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { UploadComponent } from './upload/upload.component';
 import {AngularFireStorageModule} from 'angularfire2/storage';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
     FooterComponent,
     SigallComponent,
     GmapComponent,
-    UploadComponent
+    UploadComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,

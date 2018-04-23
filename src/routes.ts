@@ -4,8 +4,11 @@ import {FlexboxComponent} from './app/layout/flexbox/flexbox.component';
 import {CountryComponent} from './app/carousel/country/country.component';
 import {SigallComponent} from './app/sigall/sigall.component';
 import {UploadComponent} from './app/upload/upload.component';
+import {CoursesComponent} from './app/courses/courses.component';
 
 export const appRoutes: Routes = [
+
+  {path: 'courses', component: CoursesComponent},
 
   {path: 'forum', loadChildren : 'app/forum/forum.module#ForumModule'},
 

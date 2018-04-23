@@ -148,7 +148,9 @@ FORMULAIRE DE SAISIE DE MESSAGE
 -->
 
   <!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
-  <router-outlet></router-outlet>
+  <div class="printing-data">
+    <router-outlet></router-outlet>
+  </div>
 
 <p-sidebar [(visible)]="visibleSidebar" position="right" [baseZIndex]="10000">
   <h3 style="font-weight:normal">Amis connectés</h3>
