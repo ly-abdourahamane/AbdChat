@@ -1,3 +1,48 @@
-<p>
-  subject-list works!
-</p>
+<div class="header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+<div class="container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- COLONNE 1 -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a class="subject-style" routerLink="">
+          {{row.title}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <!-- COLONNE 2 -->
+    <ng-container matColumnDef="subtitle">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a class="subject-style" routerLink="">
+          {{row.subtitle}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <!-- COLONNE 3 -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a class="subject-style" routerLink="">
+        {{row.description}} <br>
+          {{row.creationTime}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+</div>

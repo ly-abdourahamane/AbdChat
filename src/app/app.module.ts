@@ -8,8 +8,8 @@ import {
   MatGridListModule,
   MatIconModule,
   MatInputModule, MatListModule,
-  MatMenuModule,
-  MatSelectModule, MatSidenavModule, MatTabsModule,
+  MatMenuModule, MatPaginatorModule,
+  MatSelectModule, MatSidenavModule, MatTableModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 
@@ -133,6 +133,8 @@ import { SubjectListComponent } from './courses-container/angular/subject-list/s
     MatTabsModule,
     MatTooltipModule,
     MatSidenavModule,
+    MatTableModule,
+    MatPaginatorModule,
 
     // Primeng
     GalleriaModule,

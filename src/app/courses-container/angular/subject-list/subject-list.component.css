@@ -16,5 +16,12 @@
 
 .mat-table {
   overflow: auto;
-  max-height: 500px;
+  max-height: 2000px;
+}
+
+.mat-cell, .mat-header-cell {
+  flex: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
 }

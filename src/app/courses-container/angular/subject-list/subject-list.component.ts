@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {Subject} from '../../../shared/models/courses';
+import {Course, Subject} from '../../../shared/models/courses';
 import {CourseService} from '../../../shared/service/course.service';
 
 @Component({
@@ -8,9 +8,9 @@ import {CourseService} from '../../../shared/service/course.service';
   templateUrl: './subject-list.component.html',
   styleUrls: ['./subject-list.component.css']
 })
-export class SubjectListComponent implements OnInit, AfterViewInit {
+export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
 
-  displayedColumns = ['nom', 'nombre de messages', 'autres'];
+  displayedColumns = ['title', 'subtitle', 'description'];
   dataSource: MatTableDataSource<Subject>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -18,12 +18,30 @@ export class SubjectListComponent implements OnInit, AfterViewInit {
 
   subjectList: Subject[] = [];
 
-  constructor(private courseSerice: CourseService) {
-    this.dataSource = new MatTableDataSource(this.subjectList);
+  constructor(private courseService: CourseService) {
+
   }
 
   ngOnInit() {
+   this.getSubjectList();
+  }
 
+  ngOnChanges() {
+    this.getSubjectList();
+  }
+
+  getSubjectList(): void {
+    const subjects = this.courseService.getSubjectList('angular');
+
+    subjects.snapshotChanges().subscribe(items => {
+      this.subjectList = [];
+      items.forEach(element => {
+        const course = element.payload.toJSON();
+        course['$key'] = element.key;
+        this.subjectList.push(course as Subject);
+        });
+      this.dataSource = new MatTableDataSource(this.subjectList);
+    });
   }
 
   ngAfterViewInit() {

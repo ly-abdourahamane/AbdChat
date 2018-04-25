@@ -60,5 +60,11 @@ export class CourseService {
     return (date + ' ' + time);
   }
 
-
+/* RECUPERATION DE LA LISTE DES SUJETS D'UN THEME*/
+  getSubjectList(path: string) {
+    return this.courseList = this.database.list(path, ref => {
+      const query = ref.limitToLast(900000).orderByKey();
+      return query;
+    });
+  }
 }

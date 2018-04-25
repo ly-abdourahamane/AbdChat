@@ -23,10 +23,16 @@
         "../node_modules/primeng/resources/themes/flick/theme.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
 
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+        "../node_modules/quill/dist/quill.core.css",
+        "../node_modules/quill/dist/quill.snow.css",
+
         "../node_modules/chart.js/dist/Chart.js",
+
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/quill/dist/quill.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
