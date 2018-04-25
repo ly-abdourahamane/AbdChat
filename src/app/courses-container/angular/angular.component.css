@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  align-items: right;
+  justify-content: space-around;
+}

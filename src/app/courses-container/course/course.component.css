@@ -1,0 +1,14 @@
+.button-row {
+  display: flex;
+  align-items:left;
+  justify-content: left;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > * {
+  width: 100%;
+}

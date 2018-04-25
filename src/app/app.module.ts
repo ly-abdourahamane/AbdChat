@@ -57,12 +57,21 @@ import {
   LightboxModule,
   SidebarModule
 } from 'primeng/primeng';
+
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { UploadComponent } from './upload/upload.component';
 import {AngularFireStorageModule} from 'angularfire2/storage';
-import { CoursesComponent } from './courses/courses.component';
+import {AngularComponent} from './courses-container/angular/angular.component';
+import {CoursesContainerComponent} from './courses-container/courses-container.component';
+import { NewCourseComponent } from './courses-container/new-course/new-course.component';
+import {EditorModule} from 'primeng/editor';
+import { CoursesComponent } from './courses-container/courses/courses.component';
+import { CourseComponent } from './courses-container/course/course.component';
+import { CourseListComponent } from './courses-container/course-list/course-list.component';
+import {CourseService} from './shared/service/course.service';
+import { SubjectListComponent } from './courses-container/angular/subject-list/subject-list.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +93,13 @@ import { CoursesComponent } from './courses/courses.component';
     SigallComponent,
     GmapComponent,
     UploadComponent,
-    CoursesComponent
+    AngularComponent,
+    CoursesContainerComponent,
+    NewCourseComponent,
+    CoursesComponent,
+    CourseComponent,
+    CourseListComponent,
+    SubjectListComponent
   ],
   imports: [
     BrowserModule,
@@ -129,6 +144,7 @@ import { CoursesComponent } from './courses/courses.component';
     CheckboxModule,
     DialogModule,
     ButtonModule,
+    EditorModule,
 
     // flex layout
     FlexLayoutModule,
@@ -138,7 +154,12 @@ import { CoursesComponent } from './courses/courses.component';
     ShareModule.forRoot(),
     ShareButtonModule
   ],
-  providers: [AuthenticateService, ChatService, ...TOKENS_PROVIDERS, DataAccessService],
+  providers: [AuthenticateService,
+    ChatService,
+    ...TOKENS_PROVIDERS,
+    DataAccessService,
+    CourseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

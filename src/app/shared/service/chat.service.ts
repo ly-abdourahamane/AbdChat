@@ -9,13 +9,15 @@ export class ChatService {
 
   user: firebase.User;
   chatMessages: any;
-  chatMessage: any;
   photoUrl: string;
   email: string;
   phoneNumber: string;
   creationTime: string;
   lastSignInTime: string;
   displayName: string;
+
+  /* les variables du forum */
+  courses: any;
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.getUserData();
@@ -97,5 +99,54 @@ export class ChatService {
       now.getUTCSeconds();
 
     return (date + ' ' + time);
+  }
+
+  /* méthodes du forum */
+
+  getCourses(): AngularFireList<any[]> {
+    console.log('calling getCourses ...');
+
+    return this.database.list('courses', ref => {
+      const query = ref.limitToLast(900000).orderByKey();
+      return query;
+    });
+  }
+
+  createCourse(name: string, path: string, description: string) {
+    const timestemp = this.getTimeStamp();
+
+    this.courses = this.getCourses();
+
+    this.courses.push({
+      name: name,
+      path: path,
+      description: description,
+      creationTime: timestemp
+    });
+
+    console.log('Called createCourse!');
+  }
+
+  /* Courses subjects */
+
+  getSubjects(path: string): AngularFireList<any[]> {
+    return this.database.list(path, ref => {
+      const query = ref.limitToLast(900000).orderByKey();
+      return query;
+    });
+  }
+
+  createSubject(title: string, subtitle: string, description: string, path: string) {
+    const timestemp = this.getTimeStamp();
+
+    this.courses = this.getSubjects(path);
+
+    this.courses.push({
+      title: title,
+      subtitle: subtitle,
+      description: description,
+      creationTime: timestemp
+    });
+
   }
 }

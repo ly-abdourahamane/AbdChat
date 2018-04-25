@@ -1,0 +1,16 @@
+<div class="list-category">
+  <a *ngFor="let course of courseList" class="list-item" routerLink={{course.path}}>
+    <mat-card class="">
+      <mat-card-header>
+        <mat-card-title class="mat-card-title card-title">
+          {{course.name}}
+        </mat-card-title>
+        <mat-card-subtitle>Informatique</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{course.description}}</p>
+      </mat-card-content>
+      <div class="list-icon-spacer"></div>
+    </mat-card>
+  </a>
+</div>

@@ -1,0 +1,32 @@
+<form #courseForm="ngForm"  class="container" (ngSubmit)="onSubmit(courseForm)">
+    <div style="text-align: center;">
+      <h2 class="jumbotron">Création d'un cours </h2>
+    </div>
+
+    <mat-form-field>
+      <input matInput placeholder="Nom du cours" name="name" #name="ngModel" required
+             [(ngModel)]="selectedCourse.name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Path" name="path" #name="ngModel" required
+             [(ngModel)]="selectedCourse.path">
+    </mat-form-field>
+
+    <mat-form-field>
+    <textarea matInput [rows]="10" placeholder="Description du cours" name="description" required
+              #name="ngModel" [(ngModel)]="selectedCourse.description">
+    </textarea>
+    </mat-form-field>
+
+    <div class="button-row">
+      <button type="submit" mat-raised-button color="primary"
+
+              [disabled]="!courseForm.valid"> Créer
+      </button>
+      <button *ngIf="selectedCourse.$key!=null" mat-raised-button color="warn"
+              (click)="onDelete(courseForm)">Supprimer</button>
+      <button mat-raised-button color="accent" (click)="resetForm()">Rejeter</button>
+    </div>
+</form>
+

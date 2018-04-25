@@ -1,0 +1,28 @@
+<div class="container">
+  <div style="text-align: center;">
+    <h2 class="jumbotron">Définisser le titre du cours
+      et puis donner lui une briève description
+    </h2>
+  </div>
+
+  <mat-form-field>
+    <input matInput placeholder="Nom du cours" [(ngModel)]="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="path ..." [(ngModel)]="path">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput [rows]="10" placeholder="Description du cours"
+              [(ngModel)]="description">
+    </textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary"
+          (click)="createCourse()"
+          [disabled]="!name || !description || !path"> Envoyer
+  </button>
+  <br>
+  <button mat-raised-button color="warn" (click)="description=null">Effacer</button>
+</div>

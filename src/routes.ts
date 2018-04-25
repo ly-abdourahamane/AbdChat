@@ -4,11 +4,20 @@ import {FlexboxComponent} from './app/layout/flexbox/flexbox.component';
 import {CountryComponent} from './app/carousel/country/country.component';
 import {SigallComponent} from './app/sigall/sigall.component';
 import {UploadComponent} from './app/upload/upload.component';
-import {CoursesComponent} from './app/courses/courses.component';
+import {AngularComponent} from './app/courses-container/angular/angular.component';
+import {NewCourseComponent} from './app/courses-container/new-course/new-course.component';
+import {CoursesContainerComponent} from './app/courses-container/courses-container.component';
+import {CoursesComponent} from './app/courses-container/courses/courses.component';
+import {CourseComponent} from './app/courses-container/course/course.component';
+import {CourseListComponent} from './app/courses-container/course-list/course-list.component';
 
 export const appRoutes: Routes = [
 
-  {path: 'courses', component: CoursesComponent},
+  {path: 'cours', component: CoursesContainerComponent, children: [
+      {path: '', component: CourseListComponent},
+      {path: 'nouveau-cours', component: CourseComponent },
+      {path: 'angular', component: AngularComponent},
+    ]},
 
   {path: 'forum', loadChildren : 'app/forum/forum.module#ForumModule'},
 
@@ -19,5 +28,6 @@ export const appRoutes: Routes = [
   {path: 'chat', component: ChatRoomComponent},
   {path: '', redirectTo: '/connexion', pathMatch: 'full'},
   {path: 'layout', component: FlexboxComponent},
-  {path: 'country', component: CountryComponent}
+  {path: 'country', component: CountryComponent},
+
 ];
