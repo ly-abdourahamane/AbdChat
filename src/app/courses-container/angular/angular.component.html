@@ -10,7 +10,7 @@
 </div>
 
 <!--FORMULAIRE DE CREATION D'UN SUJET-->
-<form #subjectForm="ngForm" class="container" (ngSubmit)="onSubmit(subjectForm)" *ngIf="newSubject">
+<form #subjectForm="ngForm" class="container" (ngSubmit)="onSubmit()" *ngIf="newSubject">
 
   <mat-form-field>
     <input matInput placeholder="Titre" [(ngModel)]="subject.title" name="title" #name="ngModel" required>

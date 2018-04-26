@@ -10,6 +10,7 @@ import {CoursesContainerComponent} from './app/courses-container/courses-contain
 import {CoursesComponent} from './app/courses-container/courses/courses.component';
 import {CourseComponent} from './app/courses-container/course/course.component';
 import {CourseListComponent} from './app/courses-container/course-list/course-list.component';
+import {SendMailComponent} from './app/send-mail/send-mail.component';
 
 export const appRoutes: Routes = [
 
@@ -29,5 +30,8 @@ export const appRoutes: Routes = [
   {path: '', redirectTo: '/connexion', pathMatch: 'full'},
   {path: 'layout', component: FlexboxComponent},
   {path: 'country', component: CountryComponent},
+
+
+  {path: 'envoyer-mail', component: SendMailComponent}
 
 ];

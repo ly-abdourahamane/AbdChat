@@ -72,6 +72,7 @@ import { CourseComponent } from './courses-container/course/course.component';
 import { CourseListComponent } from './courses-container/course-list/course-list.component';
 import {CourseService} from './shared/service/course.service';
 import { SubjectListComponent } from './courses-container/angular/subject-list/subject-list.component';
+import { SendMailComponent } from './send-mail/send-mail.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { SubjectListComponent } from './courses-container/angular/subject-list/s
     CoursesComponent,
     CourseComponent,
     CourseListComponent,
-    SubjectListComponent
+    SubjectListComponent,
+    SendMailComponent
   ],
   imports: [
     BrowserModule,
