@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnChanges, OnInit, ViewChild} from '@angular/c
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Course, Subject} from '../../../shared/models/courses';
 import {CourseService} from '../../../shared/service/course.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'comp-subject-list',
@@ -17,10 +17,17 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  path: string;
+
   subjectList: Subject[] = [];
 
-  constructor(private courseService: CourseService, private router: Router) {
+  constructor(private courseService: CourseService, private router: Router,
+              private activatedRoute: ActivatedRoute) {
 
+    this.activatedRoute.params.subscribe(params => {
+      this.path = params.path;
+      console.log(this.path);
+    }, error => console.log(error));
   }
 
   ngOnInit() {
@@ -32,14 +39,14 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   getSubjectList(): void {
-    const subjects = this.courseService.getSubjectList('angular');
+    const subjects = this.courseService.getSubjectList(this.path);
 
     subjects.snapshotChanges().subscribe(items => {
       this.subjectList = [];
       items.forEach(element => {
         const course = element.payload.toJSON();
         course['$key'] = element.key;
-        this.subjectList.push(course as Subject);
+          this.subjectList.push(course as Subject);
         });
       this.dataSource = new MatTableDataSource(this.subjectList);
     });
@@ -60,6 +67,6 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
     console.log('test de la selection');
     console.log(row);
 
-    this.router.navigate(['cours/angular/' + row.title]);
+    this.router.navigate(['cours/' + this.path + '/' + row.title]);
   }
 }

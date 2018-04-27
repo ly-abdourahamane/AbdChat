@@ -138,7 +138,7 @@ export class ChatService {
     });
   }
 
-  createSubject(title: string, subtitle: string, description: string, path: string) {
+  createSubject(title: string, subtitle: string, description: string, displayName: string, path: string) {
     const timestemp = this.getTimeStamp();
 
     this.courses = this.getSubjects(path);
@@ -147,7 +147,8 @@ export class ChatService {
       title: title,
       subtitle: subtitle,
       description: description,
-      creationTime: timestemp
+      creationTime: timestemp,
+      displayName: displayName
     });
 
   }

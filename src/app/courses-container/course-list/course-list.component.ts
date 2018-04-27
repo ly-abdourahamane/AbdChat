@@ -11,6 +11,10 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   courseList: Course[];
 
+  // To sort
+  isDesc: boolean;
+  column: string;
+
   constructor(private courseService: CourseService) { }
 
   ngOnInit() {
@@ -22,6 +26,8 @@ export class CourseListComponent implements OnInit, OnChanges {
         const course = element.payload.toJSON();
         course['$key'] = element.key;
         this.courseList.push(course as Course);
+
+        this.sort('name');
       });
     });
   }
@@ -41,6 +47,25 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   onCourseSelect(course: Course) {
     this.courseService.selectedCourse = Object.assign({}, course);
+  }
+
+  sort(args: string) {
+    // Change the direction if it's the same column
+    if (this.column === args) {
+      this.isDesc = !this.isDesc;
+    }
+    this.column = args;
+    const direction = this.isDesc ? -1 : 1;
+
+    this.courseList.sort(function (a, b) {
+      if (a[args] < b[args]) {
+        return -1 * direction;
+      } else if (a[args] > b[args]) {
+        return direction;
+      } else {
+        return 0;
+      }
+    });
   }
 
 }

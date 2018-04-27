@@ -105,7 +105,7 @@ import { DisplayOnionComponent } from './courses-container/angular/subject-discu
     SubjectListComponent,
     SendMailComponent,
     SubjectDiscussionComponent,
-    DisplayOnionComponent
+    DisplayOnionComponent,
   ],
   imports: [
     BrowserModule,

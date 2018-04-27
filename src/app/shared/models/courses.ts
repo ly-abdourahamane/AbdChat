@@ -15,6 +15,7 @@ export class Subject {
   description: string;
   creationTime?: string;
   user?: UserData;
+  displayName: string;
 }
 
 export class DiscussionMessage {

@@ -18,8 +18,8 @@ export const appRoutes: Routes = [
   {path: 'cours', component: CoursesContainerComponent, children: [
       {path: '', component: CourseListComponent},
       {path: 'nouveau-cours', component: CourseComponent },
-      {path: 'angular', component: AngularComponent},
-      {path: 'angular/:title', component: SubjectDiscussionComponent}
+      {path: ':path', component: AngularComponent},
+      {path: ':path/:title', component: SubjectDiscussionComponent}
     ]},
 
   {path: 'forum', loadChildren : 'app/forum/forum.module#ForumModule'},

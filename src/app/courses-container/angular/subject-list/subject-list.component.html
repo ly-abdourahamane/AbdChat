@@ -10,9 +10,8 @@
     <ng-container matColumnDef="title">
       <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <a class="subject-style" routerLink="">
-          {{row.title}}
-        </a>
+          {{row.title}} <br>
+        par {{row.displayName}}
       </mat-cell>
     </ng-container>
 
