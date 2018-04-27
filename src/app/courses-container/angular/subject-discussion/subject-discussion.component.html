@@ -1,0 +1,79 @@
+<div class="container">
+  <!--LE TITRE DE LA PAGE-->
+  <div style="text-align: center;">
+    <h2 class="jumbotron">Donner votre avis sur le sujet {{subjectTitle}}</h2>
+  </div>
+
+<div class="mat-elevation-z8">
+  <div class="header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- COLONNE 1 -->
+    <ng-container matColumnDef="opinion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Vous avez {{opinionsList.length}} avis sur ce sujet</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{row.creationTime}} (pseudo plutard)</mat-card-title>
+            <mat-card-subtitle>{{row.creationTime}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{row.opinion}}
+
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="button-row">
+              <button mat-icon-button color="primary" (click)="like()">
+                <i class="material-icons">thumb_up</i>
+              </button>
+
+              <button mat-icon-button color="warn" (click)="notLike()">
+                <i class="material-icons">thumb_down</i>
+              </button>
+            </div>
+
+            <div *ngIf="nbLike==0">Personne n'a aimé votre message</div>
+            <div *ngIf="nbLike==1"><span class="w3-badge">{{nbLike}}</span> Utilisateur a aimé votre message</div>
+            <div *ngIf="nbLike >1"><span class="w3-badge">{{nbLike}}</span> Utilisateurs ont aimé votre message</div>
+
+          </mat-card-actions>
+        </mat-card>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+</div>
+
+  <br/>
+<!--FORMULAIRE POUR POUVOIR DONNER SON OPINION-->
+  <mat-card class="mat-elevation-z8">
+    <mat-card-content>
+      <form #opinionForm="ngForm" (ngSubmit)="onSubmit(opinionForm)">
+        <mat-form-field>
+    <textarea matInput [rows]="10" placeholder="Saisissez votre proposition"
+              name="opinion" #name="ngModel" required
+              [(ngModel)]="discussionMessage.opinion">
+    </textarea>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button type="submit" mat-raised-button color="primary"
+                  [disabled]="!opinionForm.valid"> Répondre
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

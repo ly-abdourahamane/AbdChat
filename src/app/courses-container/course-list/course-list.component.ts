@@ -14,7 +14,7 @@ export class CourseListComponent implements OnInit, OnChanges {
   constructor(private courseService: CourseService) { }
 
   ngOnInit() {
-    const courses = this.courseService.getCourseData();
+    const courses = this.courseService.getCourseData('cours');
 
     courses.snapshotChanges().subscribe(items => {
       this.courseList = [];
@@ -27,7 +27,7 @@ export class CourseListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    const courses = this.courseService.getCourseData();
+    const courses = this.courseService.getCourseData('cours');
 
     courses.snapshotChanges().subscribe(items => {
       this.courseList = [];

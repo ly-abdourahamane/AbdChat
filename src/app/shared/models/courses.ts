@@ -17,9 +17,9 @@ export class Subject {
   user?: UserData;
 }
 
-export class MessageForum {
+export class DiscussionMessage {
   $key?: string;
-  user: UserData;
-  message: string;
+  user?: UserData;
+  opinion: string;
   creationTime: string;
 }

@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnChanges, OnInit, ViewChild} from '@angular/c
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Course, Subject} from '../../../shared/models/courses';
 import {CourseService} from '../../../shared/service/course.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'comp-subject-list',
@@ -18,7 +19,7 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
 
   subjectList: Subject[] = [];
 
-  constructor(private courseService: CourseService) {
+  constructor(private courseService: CourseService, private router: Router) {
 
   }
 
@@ -53,5 +54,12 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
     filterValue = filterValue.trim(); // suppression du blanc
     filterValue = filterValue.toLowerCase(); // mise en minuscule ...
     this.dataSource.filter = filterValue;
+  }
+
+  selection_(row: any) {
+    console.log('test de la selection');
+    console.log(row);
+
+    this.router.navigate(['cours/angular/' + row.title]);
   }
 }

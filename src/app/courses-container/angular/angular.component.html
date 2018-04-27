@@ -30,7 +30,7 @@
 
   <div class="button-row">
     <button type="submit" mat-raised-button color="primary"
-            [disabled]="!subject.title || !subject.description "> Créer
+            [disabled]="!subjectForm.valid"> Créer
     </button>
     <button mat-raised-button color="warn" (click)="newSubject=false; resetForm(subjectForm)">Annuler</button>
   </div>

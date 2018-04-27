@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Course} from '../models/courses';
+import {Course, DiscussionMessage} from '../models/courses';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
 @Injectable()
@@ -7,13 +7,15 @@ export class CourseService {
 
   selectedCourse: Course = new Course();
   courseList: AngularFireList<any>;
+  discussionMessageList: AngularFireList<any>;
+  discussionMessage: DiscussionMessage;
 
   constructor(private database: AngularFireDatabase) {
 
   }
 
-  getCourseData() {
-    this.courseList = this.database.list('cours', ref => {
+  getCourseData(path: string) {
+    this.courseList = this.database.list(path, ref => {
       const query = ref.limitToLast(900000).orderByKey();
       return query;
     });
@@ -21,9 +23,9 @@ export class CourseService {
     return this.courseList;
   }
 
-  insertCourse(course: Course) {
+  insertCourse(course: Course, path: string) {
     const timestemp = this.getTimeStamp();
-    this.getCourseData();
+    this.getCourseData(path);
 
     this.courseList.push({
       name: course.name,
@@ -65,6 +67,28 @@ export class CourseService {
     return this.courseList = this.database.list(path, ref => {
       const query = ref.limitToLast(900000).orderByKey();
       return query;
+    });
+  }
+
+  /* DISCUSSION SUR UN SUJET CHOISI*/
+
+  getDiscussionMessageData(path: string) {
+    console.log(path);
+    this.discussionMessageList = this.database.list(path, ref => {
+      const query = ref.limitToLast(900000).orderByKey();
+      return query;
+    });
+
+    return this.discussionMessageList;
+  }
+
+  insertMessageInDiscussion(message: DiscussionMessage, path: string) {
+    const timestemp = this.getTimeStamp();
+    this.getDiscussionMessageData(path);
+
+    this.discussionMessageList.push({
+      opinion: message.opinion,
+      creationTime: timestemp
     });
   }
 }
