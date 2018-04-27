@@ -1,35 +1,39 @@
 <div class="container">
-  <div style="text-align: center;">
-    <h2 class="jumbotron">Contacter notre service Client</h2>
-  </div>
-</div>
 
-<form #mailForm="ngForm" class="container" (ngSubmit)="onSubmit()">
+      <div style="text-align: center;">
+        <h2 class="jumbotron">Contacter notre service Client</h2>
+      </div>
 
-  <mat-form-field>
-    <input matInput placeholder="Prénom"[(ngModel)]="mailData.firstName" name="firstName" #name="ngModel" required>
-  </mat-form-field>
+      <!--FORMULAIRE DE SAISIE DE MAIL-->
+  <mat-card class="mat-elevation-z8">
+    <mat-card-content>
+      <form #mailForm="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput placeholder="Prénom" [(ngModel)]="mailData.firstName" name="firstName" #name="ngModel"
+                 required>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Nom" [(ngModel)]="mailData.lastName" name="lastName" #name="ngModel" required>
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Nom" [(ngModel)]="mailData.lastName" name="lastName" #name="ngModel" required>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Adresse email" [(ngModel)]="mailData.mail" name="mail" #name="ngModel" required>
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Adresse email" [(ngModel)]="mailData.mail" name="mail" #name="ngModel" required>
+        </mat-form-field>
 
-  <mat-form-field>
+        <mat-form-field>
     <textarea matInput [rows]="10" placeholder="Saisissez votre message"
               name="message" #name="ngModel" required
               [(ngModel)]="mailData.message">
     </textarea>
-  </mat-form-field>
+        </mat-form-field>
 
-  <div class="button-row">
-    <button type="submit" mat-raised-button color="primary"
-            [disabled]="!mailForm.valid"> Envoyer
-    </button>
-
-
-  </div>
-</form>
+        <div class="button-row">
+          <button type="submit" mat-raised-button color="primary"
+                  [disabled]="!mailForm.valid"> Envoyer
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

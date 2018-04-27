@@ -1,14 +1,37 @@
-.button-row {
+.container {
   display: flex;
-  align-items: right;
-  justify-content: right;
+  flex-direction: column;
+  min-width: 300px;
 }
 
-.container > * {
+.header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
   width: 100%;
 }
 
-.button-row {
-  display: flex;
-  justify-content: space-around;
+.mat-table {
+  overflow: auto;
+  max-height: 2000px;
 }
+
+.mat-cell, .mat-header-cell {
+  flex: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+
+.mat-card  {
+  min-width: 100%;
+}
+
+.mat-header-row, .mat-row {
+  padding: 0px;
+}
+
