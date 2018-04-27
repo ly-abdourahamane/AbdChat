@@ -48,6 +48,8 @@ export class ChatService {
 
         console.log(auth);
 
+        console.log(auth.displayName);
+
         this.displayName = auth.displayName;
         this.email = auth.email;
         this.photoUrl = auth.photoURL;

@@ -31,11 +31,6 @@
  min-width: 100%;
 }
 
-.header-image {
-  background-image: url('../../../../assets/image/profile.jpg');
-  background-size: cover;
-}
-
 .mat-header-row, .mat-row {
   padding: 0px;
 }

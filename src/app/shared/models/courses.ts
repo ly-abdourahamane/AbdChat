@@ -22,4 +22,5 @@ export class DiscussionMessage {
   user?: UserData;
   opinion: string;
   creationTime: string;
+  displayName: string;
 }

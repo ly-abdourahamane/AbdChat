@@ -3,8 +3,14 @@ import {ActivatedRoute} from '@angular/router';
 import {CourseService} from '../../../shared/service/course.service';
 import {DiscussionMessage} from '../../../shared/models/courses';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {isNullOrUndefined} from "util";
+import {isNullOrUndefined} from 'util';
 import {NgForm} from '@angular/forms';
+import {ToolbarComponent} from '../../../toolbar/toolbar.component';
+import {ChatService} from '../../../shared/service/chat.service';
+import {UserData} from '../../../shared/models/user';
+import {AuthenticateService} from '../../../shared/service/authenticate.service';
+import {Observable} from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'comp-subject-discussion',
@@ -17,22 +23,26 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
 
   displayedColumns = ['opinion'];
   dataSource: MatTableDataSource<DiscussionMessage>;
-  opinionsList: DiscussionMessage[];
+  opinionsList: DiscussionMessage[] = [];
   discussionMessage: DiscussionMessage;
 
-  nbLike: number;
+  displayName: string;
+  user: Observable<firebase.User>;
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(private courseService: CourseService, private activatedRoute: ActivatedRoute) {
+  constructor(private courseService: CourseService, private authenticateService: AuthenticateService,
+              private chatService: ChatService, private activatedRoute: ActivatedRoute) {
 
     /*RECUPERATION DU SUJET CHOISI S'IL EST VALIDE*/
-    this.activatedRoute.params.subscribe(params =>  {
+    this.activatedRoute.params.subscribe(params => {
       this.subjectTitle = params.title;
     }, error => console.log(error));
+
+    this.getUserData();
   }
 
 
@@ -40,7 +50,6 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
     this.getOpinionsList();
     this.discussionMessage = this.courseService.discussionMessage;
     this.resetForm();
-    this.nbLike = 0;
   }
 
   ngOnChanges() {
@@ -49,10 +58,9 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
 
   getOpinionsList(): void {
     const path = 'angular/' + this.subjectTitle;
-    console.log(path);
-    const discutions = this.courseService.getDiscussionMessageData(path);
+    const discussions = this.courseService.getDiscussionMessageData(path);
 
-    discutions.snapshotChanges().subscribe(items => {
+    discussions.snapshotChanges().subscribe(items => {
       this.opinionsList = [];
       items.forEach(element => {
         const opinion = element.payload.toJSON();
@@ -60,9 +68,7 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
         this.opinionsList.push(opinion as DiscussionMessage);
       });
       this.dataSource = new MatTableDataSource(this.opinionsList);
-
-      console.log(this.opinionsList);
-    });
+      });
   }
 
   ngAfterViewInit() {
@@ -77,10 +83,9 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
     const path = 'angular/' + this.subjectTitle;
     if (isNullOrUndefined(form.value.$key)) {
-      this.courseService.insertMessageInDiscussion(form.value, path);
+      this.courseService.insertMessageInDiscussion(form.value, this.displayName, path);
       this.opinionsList.push(form.value as DiscussionMessage);
     }
 
@@ -92,20 +97,25 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
       form.reset();
     }
 
-    this.courseService.discussionMessage =  this.discussionMessage = {
+    this.courseService.discussionMessage = this.discussionMessage = {
       $key: null,
       opinion: '',
-      creationTime: ''
+      creationTime: '',
+      displayName: ''
     };
   }
 
-  like() {
-    this.nbLike ++;
-  }
 
-  notLike() {
-    if (this.nbLike > 0) {
-      this.nbLike --;
-    }
+  getUserData() {
+    this.user = this.authenticateService.authUser();
+
+    this.user.subscribe(user => {
+      if (user) {
+
+        this.authenticateService.getUser(user.uid).valueChanges().subscribe((user_: UserData) => {
+          this.displayName = user_.displayName;
+        });
+      }
+    });
   }
 }

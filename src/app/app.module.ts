@@ -74,6 +74,7 @@ import {CourseService} from './shared/service/course.service';
 import { SubjectListComponent } from './courses-container/angular/subject-list/subject-list.component';
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { SubjectDiscussionComponent } from './courses-container/angular/subject-discussion/subject-discussion.component';
+import { DisplayOnionComponent } from './courses-container/angular/subject-discussion/display-onion/display-onion.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { SubjectDiscussionComponent } from './courses-container/angular/subject-
     CourseListComponent,
     SubjectListComponent,
     SendMailComponent,
-    SubjectDiscussionComponent
+    SubjectDiscussionComponent,
+    DisplayOnionComponent
   ],
   imports: [
     BrowserModule,

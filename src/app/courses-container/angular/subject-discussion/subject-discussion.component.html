@@ -16,35 +16,7 @@
     <ng-container matColumnDef="opinion">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Vous avez {{opinionsList.length}} avis sur ce sujet</mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <mat-card>
-          <mat-card-header>
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{row.creationTime}} (pseudo plutard)</mat-card-title>
-            <mat-card-subtitle>{{row.creationTime}}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{row.opinion}}
-
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <div class="button-row">
-              <button mat-icon-button color="primary" (click)="like()">
-                <i class="material-icons">thumb_up</i>
-              </button>
-
-              <button mat-icon-button color="warn" (click)="notLike()">
-                <i class="material-icons">thumb_down</i>
-              </button>
-            </div>
-
-            <div *ngIf="nbLike==0">Personne n'a aimé votre message</div>
-            <div *ngIf="nbLike==1"><span class="w3-badge">{{nbLike}}</span> Utilisateur a aimé votre message</div>
-            <div *ngIf="nbLike >1"><span class="w3-badge">{{nbLike}}</span> Utilisateurs ont aimé votre message</div>
-
-          </mat-card-actions>
-        </mat-card>
+        <comp-display-onion [row]="row"></comp-display-onion>
       </mat-cell>
     </ng-container>
 

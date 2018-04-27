@@ -82,13 +82,14 @@ export class CourseService {
     return this.discussionMessageList;
   }
 
-  insertMessageInDiscussion(message: DiscussionMessage, path: string) {
+  insertMessageInDiscussion(message: DiscussionMessage, displayName: string, path: string) {
     const timestemp = this.getTimeStamp();
     this.getDiscussionMessageData(path);
 
     this.discussionMessageList.push({
       opinion: message.opinion,
-      creationTime: timestemp
+      creationTime: timestemp,
+      displayName: displayName
     });
   }
 }
