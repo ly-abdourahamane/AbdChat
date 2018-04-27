@@ -18,7 +18,7 @@
 
     <button mat-button>
       <strong>
-        <a href="#" matTooltip="Contactez moi par mail" (click)="contactMe()"><h3>Me Contacter</h3></a>
+        <a matTooltip="Contactez moi par mail" routerLink="nous-contacter"><h3>Me Contacter</h3></a>
       </strong>
     </button>
 
@@ -96,20 +96,20 @@
 
   <button mat-menu-item>
           <span>
-            <a href="#" matTooltip="Contactez moi par mail" (click)="contactMe()">Me Contacter</a>
+            <a matTooltip="Contactez moi par mail"  routerLink="nous-contacter">Me Contacter</a>
           </span>
   </button>
 
 
   <button *ngIf="!(user|async)?.uid" mat-menu-item>
           <span>
-            <a href="#" (click)="login()">Connexion</a>
+            <a href="#" (click)="login()" routerLinkActive="true">Connexion</a>
           </span>
   </button>
 
   <button *ngIf="!(user|async)?.uid" mat-menu-item>
           <span>
-            <a routerLink="/inscription">Créer un compte</a>
+            <a routerLink="/inscription" routerLinkActive="true">Créer un compte</a>
           </span>
   </button>
 

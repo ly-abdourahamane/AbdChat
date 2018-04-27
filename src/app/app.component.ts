@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 import { Picker } from 'emoji-mart';
 import { Emoji } from 'emoji-mart';
@@ -13,7 +13,8 @@ import {AuthenticateService} from './shared/service/authenticate.service';
 @Component({
   selector: 'comp-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit{
   user: Observable<firebase.User>;
@@ -32,12 +33,10 @@ export class AppComponent implements OnInit{
     this.user.subscribe(user => {
       if (user) {
         this.userData = user;
-        console.log(user);
         this.userEmail = user.email;
         this.displayName = user.displayName;
-
       }
-    });
+    }, error => console.log(error));
   }
 
   ngOnInit() {
@@ -50,17 +49,11 @@ export class AppComponent implements OnInit{
       if (user) {
 
         this.authenticateService.getUser(user.uid).valueChanges().subscribe((user_: UserData) => {
-          console.log(user_);
           this.userName = user_.displayName;
-
-          console.log(this.displayName);
 
           if (isNullOrUndefined(this.displayName)) {
             this.displayName = this.userName;
-          }
-
-          console.log(this.displayName);
-        });
+          }}, error => console.log(error));
       }
     });
   }
@@ -80,5 +73,10 @@ export class AppComponent implements OnInit{
    */
   contactMe() {
 
+  }
+
+  sendMail() {
+    console.log('send mail');
+    this.router.navigate(['/nous-contacter']);
   }
 }

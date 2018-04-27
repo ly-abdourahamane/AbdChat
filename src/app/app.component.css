@@ -14,8 +14,15 @@
   flex: 1 1 auto;
 }
 
-/*SUPPRESSION DU SOULIGNEMENT DES LINK*/
-a:link
-{
-  text-decoration:none;
+.mat-menu-item {
+  color: #999999 !important;
+}
+
+button.mat-menu-item{
+  background-color: #aaaaaa;
+}
+
+button.mat-menu-item:hover {
+  background-color: #999999;
+  color: #999999 !important;
 }

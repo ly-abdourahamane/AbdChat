@@ -36,6 +36,6 @@ export const appRoutes: Routes = [
 
 
 
-  {path: 'envoyer-mail', component: SendMailComponent}
+  {path: 'nous-contacter', component: SendMailComponent}
 
 ];

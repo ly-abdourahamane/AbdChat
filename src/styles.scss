@@ -44,12 +44,34 @@ button:disabled {
   padding-top: 40px;
 }
 
+/*SUPPRESSION DU SOULIGNEMENT DES LINK*/
+a {
+  text-decoration: underline;
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: white;
+  background: none;
+}
+
+a:link {
+  text-decoration: none;
+}
 
 comp-chat-room {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
+
+/* ALIGNEMENT DES BOUTONS*/
+
 
 
 

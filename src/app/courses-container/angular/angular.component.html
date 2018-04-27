@@ -4,39 +4,42 @@
     <h2 class="jumbotron">Liste des sujets d'Angular</h2>
   </div>
 
-  <button mat-raised-button color="primary" [disabled]="newSubject"
-          (click)="newSubject=true">Créer un sujet
-  </button>
-</div>
+  <div class="button-row">
+    <button mat-raised-button color="primary" [disabled]="newSubject"
+            (click)="newSubject=true">Créer un sujet
+    </button>
+  </div>
 
-<!--FORMULAIRE DE CREATION D'UN SUJET-->
-<form #subjectForm="ngForm" class="container" (ngSubmit)="onSubmit()" *ngIf="newSubject">
+  <!--FORMULAIRE DE CREATION D'UN SUJET-->
+  <mat-card class="mat-elevation-z8">
+    <mat-card-content>
+      <form #subjectForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="newSubject">
 
-  <mat-form-field>
-    <input matInput placeholder="Titre" [(ngModel)]="subject.title" name="title" #name="ngModel" required>
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Titre" [(ngModel)]="subject.title" name="title" #name="ngModel" required>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Sous titre" [(ngModel)]="subject.subtitle" name="subtitle" #name="ngModel">
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Sous titre" [(ngModel)]="subject.subtitle" name="subtitle" #name="ngModel">
+        </mat-form-field>
 
-  <mat-form-field>
+        <mat-form-field>
     <textarea matInput [rows]="10" placeholder="Description du sujet"
               name="description" #name="ngModel" required
               [(ngModel)]="subject.description">
     </textarea>
-  </mat-form-field>
+        </mat-form-field>
 
+        <div class="button-row">
+          <button type="submit" mat-raised-button color="primary"
+                  [disabled]="!subjectForm.valid"> Créer
+          </button>
+          <button mat-raised-button color="warn" (click)="newSubject=false; resetForm(subjectForm)">Annuler</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 
-  <div class="button-row">
-    <button type="submit" mat-raised-button color="primary"
-            [disabled]="!subjectForm.valid"> Créer
-    </button>
-    <button mat-raised-button color="warn" (click)="newSubject=false; resetForm(subjectForm)">Annuler</button>
-  </div>
-</form>
-
-<!--LISTE DES SUJETS-->
-<div class="container">
-<comp-subject-list></comp-subject-list>
+  <!--LISTE DES SUJETS-->
+  <comp-subject-list></comp-subject-list>
 </div>

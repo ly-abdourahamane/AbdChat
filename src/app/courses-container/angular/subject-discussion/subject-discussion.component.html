@@ -4,32 +4,33 @@
     <h2 class="jumbotron">Donner votre avis sur le sujet {{subjectTitle}}</h2>
   </div>
 
-<div class="mat-elevation-z8">
-  <div class="header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
+  <div class="mat-elevation-z8">
+    <div class="header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- COLONNE 1 -->
+      <ng-container matColumnDef="opinion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Vous avez {{opinionsList.length}} avis sur ce sujet
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <comp-display-onion [row]="row"></comp-display-onion>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
   </div>
-  <mat-table [dataSource]="dataSource" matSort>
-
-    <!-- COLONNE 1 -->
-    <ng-container matColumnDef="opinion">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Vous avez {{opinionsList.length}} avis sur ce sujet</mat-header-cell>
-      <mat-cell *matCellDef="let row">
-        <comp-display-onion [row]="row"></comp-display-onion>
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>
-  </mat-table>
-
-  <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
-</div>
 
   <br/>
-<!--FORMULAIRE POUR POUVOIR DONNER SON OPINION-->
+  <!--FORMULAIRE POUR POUVOIR DONNER SON OPINION-->
   <mat-card class="mat-elevation-z8">
     <mat-card-content>
       <form #opinionForm="ngForm" (ngSubmit)="onSubmit(opinionForm)">
