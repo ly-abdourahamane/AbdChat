@@ -22,7 +22,6 @@ export class CourseComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value.$key);
     if (isNullOrUndefined(form.value.$key)) {
       this.courseService.insertCourse(form.value, 'cours');
     } else {

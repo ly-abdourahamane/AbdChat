@@ -21,8 +21,6 @@ export class ChatService {
 
   constructor(private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.getUserData();
-    console.log('CHAT SERVICE CONSTRUCTOR');
-    this.afAuth.authState.subscribe(x => console.log(x));
   }
 
   getUser() {
@@ -32,7 +30,6 @@ export class ChatService {
   }
 
   getUser_(userId) {
-    console.log('/users/' + userId);
     return this.database.object('/users/' + userId);
   }
 
@@ -42,13 +39,8 @@ export class ChatService {
   }
 
   getUserData() {
-    console.log('get user data');
     this.afAuth.authState.subscribe(auth => {
       if (!isNullOrUndefined(auth)) {
-
-        console.log(auth);
-
-        console.log(auth.displayName);
 
         this.displayName = auth.displayName;
         this.email = auth.email;
@@ -74,8 +66,6 @@ export class ChatService {
       creationTime: this.creationTime,
       lastSignInTime: this.lastSignInTime
     });
-
-    console.log('Called sendMessage() !');
   }
 
   getDisplayName() {
@@ -83,7 +73,6 @@ export class ChatService {
   }
 
   getMessages(): AngularFireList<any[]> {
-    console.log('calling getMessages...');
     return this.database.list('messages',  ref => {
       const query = ref.limitToLast(90000).orderByKey();
       return query;
@@ -106,7 +95,6 @@ export class ChatService {
   /* méthodes du forum */
 
   getCourses(): AngularFireList<any[]> {
-    console.log('calling getCourses ...');
 
     return this.database.list('courses', ref => {
       const query = ref.limitToLast(900000).orderByKey();
@@ -126,7 +114,6 @@ export class ChatService {
       creationTime: timestemp
     });
 
-    console.log('Called createCourse!');
   }
 
   /* Courses subjects */

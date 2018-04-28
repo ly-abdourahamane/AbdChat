@@ -14,7 +14,6 @@ import {AuthenticateService} from './shared/service/authenticate.service';
   selector: 'comp-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  // encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit{
   user: Observable<firebase.User>;
@@ -71,12 +70,7 @@ export class AppComponent implements OnInit{
   /**
    * PERMET D'ENVOYER UN MAIL
    */
-  contactMe() {
-
-  }
-
-  sendMail() {
-    console.log('send mail');
+   sendMail() {
     this.router.navigate(['/nous-contacter']);
   }
 }

@@ -21,7 +21,6 @@ export class NewCourseComponent implements OnInit {
   }
 
   createCourse(): void {
-    console.log('create new course');
     this.chatService.createCourse(this.name, this.path, this.description);
     this.name = this.description = this.path = '';
   }

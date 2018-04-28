@@ -5,7 +5,6 @@ import {DiscussionMessage} from '../../../shared/models/courses';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {isNullOrUndefined} from 'util';
 import {NgForm} from '@angular/forms';
-import {ToolbarComponent} from '../../../toolbar/toolbar.component';
 import {ChatService} from '../../../shared/service/chat.service';
 import {UserData} from '../../../shared/models/user';
 import {AuthenticateService} from '../../../shared/service/authenticate.service';

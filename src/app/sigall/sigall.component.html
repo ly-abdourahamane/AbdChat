@@ -25,12 +25,12 @@
 
   <div class="call-out">
     <div class="list-category">
-      <a *ngFor="let discipline of disciplines" class="list-item" href={{discipline.path}}>
+      <div *ngFor="let discipline of disciplines" class="list-item">
         <mat-card class="list-card">
           <mat-card-title class="list-card-title mat-card-title">{{discipline.name}}</mat-card-title>
           <div class="list-icon-spacer"></div>
         </mat-card>
-      </a>
+      </div>
     </div>
   </div>
 </div>

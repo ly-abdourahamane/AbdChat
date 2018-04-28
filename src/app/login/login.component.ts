@@ -31,30 +31,24 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithEmailAndPassword() {
-    console.log('login() ....');
     this.authenticateService.signInWithEmailAndPassword(this.email, this.password)
       .then(resolve => {
-        console.log(resolve);
         this.router.navigate(['chat']);
       })
       .catch(error => this.errorMsg = error.message);
   }
 
   signInWithFacebook() {
-    console.log('login() called from login-form component');
     this.authenticateService.signInWithFacebook()
       .then(resolve => {
-        console.log(resolve);
         this.router.navigate(['chat']);
       })
       .catch(error => this.errorMsg = error.message);
   }
 
   signInWithGoogle() {
-    console.log('login() called from login-form component');
     this.authenticateService.signInWithGoogle()
       .then(resolve => {
-        console.log(resolve);
         this.router.navigate(['chat']);
       })
       .catch(error => this.errorMsg = error.message);

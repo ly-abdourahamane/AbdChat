@@ -1,5 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
-import {ChatService} from '../shared/service/chat.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'comp-courses-container',

@@ -25,7 +25,6 @@ export class AuthenticateService {
   }
 
   getUser(userId) {
-    console.log('/users/' + userId);
     return this.database.object('/users/' + userId);
   }
 
@@ -59,7 +58,6 @@ export class AuthenticateService {
       .then((resolve) => {
         const status = 'online';
         this.setUserStatus(status);
-        console.log(resolve);
       }).catch(error => console.log(error));
   }
 

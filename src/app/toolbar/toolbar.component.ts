@@ -4,7 +4,6 @@ import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import {Router} from '@angular/router';
 import {AuthenticateService} from '../shared/service/authenticate.service';
-import {ChatService} from '../shared/service/chat.service';
 import {isNullOrUndefined} from 'util';
 import {UserData} from '../shared/models/user';
 
@@ -31,7 +30,6 @@ export class ToolbarComponent implements OnInit {
     this.user.subscribe(user => {
       if (user) {
         this.userData = user;
-        console.log(user);
         this.userEmail = user.email;
         this.displayName = user.displayName;
 
@@ -49,16 +47,11 @@ export class ToolbarComponent implements OnInit {
       if (user) {
 
         this.authenticateService.getUser(user.uid).valueChanges().subscribe((user_: UserData) => {
-          console.log(user_);
           this.userName = user_.displayName;
-
-          console.log(this.displayName);
 
           if (isNullOrUndefined(this.displayName)) {
             this.displayName = this.userName;
           }
-
-          console.log(this.displayName);
         });
       }
     });

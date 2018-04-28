@@ -20,7 +20,6 @@ export class ChatFormComponent implements OnInit {
   }
 
   send() {
-    console.log(this.message);
     this.chatService.sendMessage(this.message);
     this.message = '';
   }
@@ -32,8 +31,6 @@ export class ChatFormComponent implements OnInit {
   }
 
   setPopupAction(event: any) {
-    console.log('setPopupAction');
-    console.log(event);
     this.openPopup = event;
     if (event.keyCode === 13) {
       this.send();

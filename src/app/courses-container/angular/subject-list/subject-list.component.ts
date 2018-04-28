@@ -26,7 +26,6 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
 
     this.activatedRoute.params.subscribe(params => {
       this.path = params.path;
-      console.log(this.path);
     }, error => console.log(error));
   }
 
@@ -64,9 +63,6 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   selection_(row: any) {
-    console.log('test de la selection');
-    console.log(row);
-
     this.router.navigate(['cours/' + this.path + '/' + row.title]);
   }
 }

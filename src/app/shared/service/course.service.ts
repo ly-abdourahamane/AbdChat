@@ -73,7 +73,6 @@ export class CourseService {
   /* DISCUSSION SUR UN SUJET CHOISI*/
 
   getDiscussionMessageData(path: string) {
-    console.log(path);
     this.discussionMessageList = this.database.list(path, ref => {
       const query = ref.limitToLast(900000).orderByKey();
       return query;
