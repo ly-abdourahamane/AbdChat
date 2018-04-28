@@ -12,9 +12,9 @@
 
   <br>
   <!--FORMULAIRE DE CREATION D'UN SUJET-->
-  <mat-card class="mat-elevation-z8">
+  <mat-card class="mat-elevation-z8" *ngIf="newSubject">
     <mat-card-content>
-      <form #subjectForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="newSubject">
+      <form #subjectForm="ngForm" (ngSubmit)="onSubmit()">
 
         <mat-form-field>
           <input matInput placeholder="Titre" [(ngModel)]="subject.title" name="title" #name="ngModel" required>
@@ -40,7 +40,8 @@
       </form>
     </mat-card-content>
   </mat-card>
-
-  <!--LISTE DES SUJETS-->
-  <comp-subject-list></comp-subject-list>
 </div>
+
+<!--LISTE DES SUJETS-->
+<comp-subject-list></comp-subject-list>
+

@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     const displayName = this.displayName;
 
     this.authenticateService.signUp(email, password, displayName)
-      .then(resolve => this.router.navigate(['chat']))
+      .then(resolve => this.router.navigate(['cours']))
       .catch(error => this.errorMsg = error.message);
   }
 }

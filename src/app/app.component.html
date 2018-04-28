@@ -1,7 +1,11 @@
 <mat-toolbar color="primary">
 
-  <button mat-button>
+  <button *ngIf="!(user|async)?.uid" mat-button>
     <a href="#"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
+  </button>
+
+  <button *ngIf="(user|async)?.uid" mat-button>
+      <a routerLink="/cours"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
   </button>
 
   <button mat-button>

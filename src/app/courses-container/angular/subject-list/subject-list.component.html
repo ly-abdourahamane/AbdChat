@@ -1,44 +1,44 @@
-<div class="container mat-elevation-z8">
-  <div class="header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
-  <mat-table [dataSource]="dataSource" matSort>
+<div class="container">
 
-    <!-- COLONNE 1 -->
-    <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
-      <mat-cell *matCellDef="let row">
+  <div class="mat-elevation-z8">
+    <div class="header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <br>
+    <mat-table [dataSource]="dataSource" matSort [@goals]="subjectList.length">
+
+      <!-- COLONNE 1 -->
+      <ng-container matColumnDef="title">
+        <mat-cell *matCellDef="let row">
           {{row.title}} <br>
-        par {{row.displayName}}
-      </mat-cell>
-    </ng-container>
+          par {{row.displayName}}
+        </mat-cell>
+      </ng-container>
 
-    <!-- COLONNE 2 -->
-    <ng-container matColumnDef="subtitle">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
-      <mat-cell *matCellDef="let row">
+      <!-- COLONNE 2 -->
+      <ng-container matColumnDef="subtitle">
+        <mat-cell *matCellDef="let row">
           {{row.subtitle}}
-      </mat-cell>
-    </ng-container>
+        </mat-cell>
+      </ng-container>
 
-    <!-- COLONNE 3 -->
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
-      <mat-cell *matCellDef="let row">
-        {{row.description}} <br>
+      <!-- COLONNE 3 -->
+      <ng-container matColumnDef="description">
+        <mat-cell *matCellDef="let row">
+          {{row.description}} <br>
           {{row.creationTime}}
-      </mat-cell>
-    </ng-container>
+        </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"
-    (click)="selection_(row)">
-    </mat-row>
-  </mat-table>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               (click)="selection_(row)" [compMouseLiveColor]="'#dddddd'">
+      </mat-row>
+    </mat-table>
 
-  <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+  </div>
 </div>
 
 
