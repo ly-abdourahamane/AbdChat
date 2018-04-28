@@ -5,15 +5,15 @@ import {CountryComponent} from './app/carousel/country/country.component';
 import {SigallComponent} from './app/sigall/sigall.component';
 import {UploadComponent} from './app/upload/upload.component';
 import {AngularComponent} from './app/courses-container/angular/angular.component';
-import {NewCourseComponent} from './app/courses-container/new-course/new-course.component';
 import {CoursesContainerComponent} from './app/courses-container/courses-container.component';
-import {CoursesComponent} from './app/courses-container/courses/courses.component';
 import {CourseComponent} from './app/courses-container/course/course.component';
 import {CourseListComponent} from './app/courses-container/course-list/course-list.component';
 import {SendMailComponent} from './app/send-mail/send-mail.component';
 import {SubjectDiscussionComponent} from './app/courses-container/angular/subject-discussion/subject-discussion.component';
 
 export const appRoutes: Routes = [
+
+  {path: '', redirectTo: '/connexion', pathMatch: 'full'},
 
   {path: 'cours', component: CoursesContainerComponent, children: [
       {path: '', component: CourseListComponent},
@@ -29,7 +29,6 @@ export const appRoutes: Routes = [
   {path: 'inscription', component: SigallComponent},
   {path: 'connexion', component: SigallComponent},
   {path: 'chat', component: ChatRoomComponent},
-  {path: '', redirectTo: '/connexion', pathMatch: 'full'},
   {path: 'layout', component: FlexboxComponent},
   {path: 'country', component: CountryComponent},
 

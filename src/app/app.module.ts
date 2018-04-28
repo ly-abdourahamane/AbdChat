@@ -75,6 +75,7 @@ import { SubjectListComponent } from './courses-container/angular/subject-list/s
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { SubjectDiscussionComponent } from './courses-container/angular/subject-discussion/subject-discussion.component';
 import { DisplayOnionComponent } from './courses-container/angular/subject-discussion/display-opinion/display-onion.component';
+import { MouseLiveColorDirective } from './directives/mouse-live-color.directive';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { DisplayOnionComponent } from './courses-container/angular/subject-discu
     SendMailComponent,
     SubjectDiscussionComponent,
     DisplayOnionComponent,
+    MouseLiveColorDirective,
   ],
   imports: [
     BrowserModule,

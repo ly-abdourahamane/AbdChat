@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   signInWithEmailAndPassword() {
     this.authenticateService.signInWithEmailAndPassword(this.email, this.password)
       .then(resolve => {
-        this.router.navigate(['chat']);
+        this.router.navigate(['cours']);
       })
       .catch(error => this.errorMsg = error.message);
   }
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   signInWithFacebook() {
     this.authenticateService.signInWithFacebook()
       .then(resolve => {
-        this.router.navigate(['chat']);
+        this.router.navigate(['cours']);
       })
       .catch(error => this.errorMsg = error.message);
   }
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this.authenticateService.signInWithGoogle()
       .then(resolve => {
-        this.router.navigate(['chat']);
+        this.router.navigate(['cours']);
       })
       .catch(error => this.errorMsg = error.message);
   }
