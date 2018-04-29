@@ -26,3 +26,28 @@ button.mat-menu-item:hover {
   background-color: #999999;
   color: #999999 !important;
 }
+
+.column-layout {
+  max-width: 1300px;
+  background-color: #FFF;
+  margin: 0px auto 0 auto;
+  line-height: 1.65;
+  padding: 0px 0px;
+  display: flex;
+}
+
+
+.main-column {
+  flex: 1;
+  order: 2; /*Défini l'ordre d'affichage*/
+}
+
+.sidebar-one {
+  flex: 0;
+  order: 1;
+}
+
+.sidebar-two {
+  flex: 0;
+  order: 3;
+}

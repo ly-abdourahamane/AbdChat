@@ -5,7 +5,7 @@
   </button>
 
   <button *ngIf="(user|async)?.uid" mat-button>
-      <a routerLink="/cours"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
+    <a routerLink="/cours"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
   </button>
 
   <button mat-button>
@@ -136,8 +136,12 @@
 </p-sidebar>
 
 <!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
-<div class="printing-data">
-  <router-outlet></router-outlet>
+<div class="column-layout">
+  <div class="main-column">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="sidebar-one"></div>
+  <div class="sidebar-two"></div>
 </div>
 
 <p-sidebar [(visible)]="visibleSidebar" position="right" [baseZIndex]="10000">

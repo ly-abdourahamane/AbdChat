@@ -15,21 +15,20 @@
 .column-layout {
   max-width: 1300px;
   background-color: #FFF;
-  margin: 40px auto 0 auto;
+  margin: 0px auto 0 auto;
   line-height: 1.65;
-  padding: 20px 50px;
+  padding: 0px 0px;
   display: flex;
-}
-
-
-.main-column {
-  flex: 3;
-  order: 2; /*Défini l'ordre d'affichage*/
 }
 
 .sidebar-one {
   flex: 1;
   order: 1;
+}
+
+.main-column {
+  flex: 15;
+  order: 2; /*Défini l'ordre d'affichage*/
 }
 
 .sidebar-two {
