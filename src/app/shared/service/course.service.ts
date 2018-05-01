@@ -51,9 +51,9 @@ export class CourseService {
 
   private getTimeStamp() {
     const now = new Date();
-    const date = now.getUTCFullYear() + '/' +
+    const date =  now.getUTCDate() + '/' +
       (now.getUTCMonth() + 2) + '/' +
-      now.getUTCDate();
+       now.getUTCFullYear();
 
     const time = now.getUTCHours() + 2 + ':' +
       now.getUTCMinutes() + ':' +

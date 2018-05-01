@@ -81,9 +81,9 @@ export class ChatService {
 
   private getTimeStamp() {
     const now = new Date();
-    const date = now.getUTCFullYear() + '/' +
-      (now.getUTCMonth() + 1) + '/' +
-      now.getUTCDate();
+    const date =  now.getUTCDate() + '/' +
+      (now.getUTCMonth() + 2) + '/' +
+      now.getUTCFullYear();
 
     const time = now.getUTCHours() + 1 + ':' +
       now.getUTCMinutes() + ':' +

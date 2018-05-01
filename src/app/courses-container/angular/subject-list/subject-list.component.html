@@ -33,8 +33,7 @@
       </ng-container>
 
       <mat-row *matRowDef="let row; columns: displayedColumns;"
-               (click)="selection_(row)" [compMouseLiveColor]="'#dddddd'"
-               [@goals]="length">
+               (click)="selection_(row)" [compMouseLiveColor]="'#dddddd'">
       </mat-row>
     </mat-table>
 
