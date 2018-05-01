@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {
-  MatButtonModule, MatCardModule, MatFormFieldModule,
+  MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule, MatListModule,
@@ -76,6 +76,8 @@ import { SendMailComponent } from './send-mail/send-mail.component';
 import { SubjectDiscussionComponent } from './courses-container/angular/subject-discussion/subject-discussion.component';
 import { DisplayOnionComponent } from './courses-container/angular/subject-discussion/display-opinion/display-onion.component';
 import { MouseLiveColorDirective } from './directives/mouse-live-color.directive';
+import { HomeDialogComponent } from './home-dialog/home-dialog.component';
+import { DialogOverviewComponent } from './home-dialog/dialog-overview/dialog-overview.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,8 @@ import { MouseLiveColorDirective } from './directives/mouse-live-color.directive
     SubjectDiscussionComponent,
     DisplayOnionComponent,
     MouseLiveColorDirective,
+    HomeDialogComponent,
+    DialogOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,6 +147,7 @@ import { MouseLiveColorDirective } from './directives/mouse-live-color.directive
     MatSidenavModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
 
     // Primeng
     GalleriaModule,
@@ -170,6 +175,7 @@ import { MouseLiveColorDirective } from './directives/mouse-live-color.directive
     DataAccessService,
     CourseService
   ],
+  entryComponents: [DialogOverviewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
