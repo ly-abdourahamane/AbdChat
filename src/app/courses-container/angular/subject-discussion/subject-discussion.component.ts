@@ -67,12 +67,13 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
         this.opinionsList.push(opinion as DiscussionMessage);
       });
       this.dataSource = new MatTableDataSource(this.opinionsList);
-      });
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.getOpinionsList();
   }
 
   applyFilter(filterValue: string) {
@@ -103,7 +104,6 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
       displayName: ''
     };
   }
-
 
   getUserData() {
     this.user = this.authenticateService.authUser();

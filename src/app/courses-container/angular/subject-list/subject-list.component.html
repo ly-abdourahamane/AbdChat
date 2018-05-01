@@ -7,7 +7,7 @@
       </mat-form-field>
     </div>
     <br>
-    <mat-table [dataSource]="dataSource" matSort [@goals]="subjectList.length">
+    <mat-table [dataSource]="dataSource" matSort>
 
       <!-- COLONNE 1 -->
       <ng-container matColumnDef="title">
@@ -33,17 +33,16 @@
       </ng-container>
 
       <mat-row *matRowDef="let row; columns: displayedColumns;"
-               (click)="selection_(row)" [compMouseLiveColor]="'#dddddd'">
+               (click)="selection_(row)" [compMouseLiveColor]="'#dddddd'"
+               [@goals]="length">
       </mat-row>
     </mat-table>
 
-    <mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50, 100]"></mat-paginator>
+    <mat-paginator #paginateur
+                   [pageSize]="20"
+                   [pageSizeOptions]="[3, 10, 20, 4, 5, 6, 7, 8, 9]"
+                   [showFirstLastButtons]="true">
+    </mat-paginator>
+
   </div>
 </div>
-
-
-<!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-<mat-row *matRowDef="let row; columns: displayedColumns;"
-         (click)="highlightedRows.push(row)"
-         [style.background]="highlightedRows.indexOf(row) != -1 ? 'lightblue' : ''">
-</mat-row>-->

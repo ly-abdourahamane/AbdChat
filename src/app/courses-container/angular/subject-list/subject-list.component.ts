@@ -46,6 +46,7 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
   path: string;
 
   subjectList: Subject[] = [];
+  length: number;
 
   constructor(private courseService: CourseService, private router: Router,
               private activatedRoute: ActivatedRoute) {
@@ -72,14 +73,16 @@ export class SubjectListComponent implements OnInit, AfterViewInit, OnChanges {
         const course = element.payload.toJSON();
         course['$key'] = element.key;
           this.subjectList.push(course as Subject);
+          this.length = this.subjectList.length;
         });
       this.dataSource = new MatTableDataSource(this.subjectList);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.getSubjectList();
   }
 
   applyFilter(filterValue: string) {
