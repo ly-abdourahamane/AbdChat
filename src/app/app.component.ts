@@ -53,6 +53,9 @@ export class AppComponent implements OnInit{
           if (isNullOrUndefined(this.displayName)) {
             this.displayName = this.userName;
           }}, error => console.log(error));
+      } else {
+        // REDIRECTION VERS LA PAGE DE CONNEXION S'IL N'EST IDENTIFIÉ
+        this.router.navigate(['connexion']);
       }
     });
   }
@@ -64,7 +67,7 @@ export class AppComponent implements OnInit{
 
   login() {
     // TODO: À COMPLETER !!!
-    this.router.navigate(['login']);
+    this.router.navigate(['connexion']);
   }
 
   /**
