@@ -69,6 +69,22 @@ export class AuthenticateService {
         this.setUserData(email, displayName, status);
       }).catch(error => console.log(error));
   }
+  /*   signUp(email: string, password: string, displayName: string) {
+     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+       .then(user => {
+         user.sendEmailVerification().then(success => {
+           this.authState = user;
+           const status = 'online';
+           console.log();
+           this.setUserData(email, displayName, status);
+         }, error => {
+           console.log(error);
+           console.log('votre email est invalide');
+         });
+
+       }).catch(error => console.log(error));
+   }
+   */
 
   setUserData(email: string, displayName: string, status: string): void {
     const path = `users/${this.currentUserId}`;
