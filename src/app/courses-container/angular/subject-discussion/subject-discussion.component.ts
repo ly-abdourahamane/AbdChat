@@ -28,6 +28,12 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
   displayName: string;
   user: Observable<firebase.User>;
 
+  message: string;
+  text: string;
+  openPopup: Function;
+
+  lol = false;
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -46,6 +52,9 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
 
 
   ngOnInit() {
+    this.text = '';
+    this.message = '';
+
     this.getOpinionsList();
     this.discussionMessage = this.courseService.discussionMessage;
     this.resetForm();
@@ -116,5 +125,24 @@ export class SubjectDiscussionComponent implements OnInit, OnChanges, AfterViewI
         });
       }
     });
+  }
+
+
+  handleSubmit(event, opinionForm) {
+    if (event.keyCode === 13) {
+      this.onSubmit(opinionForm);
+    }
+  }
+
+  setPopupAction(event: any, opinionForm) {
+    console.log('setPopupAction');
+    console.log(event);
+
+    this.lol = false;
+
+    this.openPopup = event;
+    if (event.keyCode === 13) {
+      this.onSubmit(opinionForm);
+    }
   }
 }

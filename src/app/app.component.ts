@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, NgZone, OnInit, ViewEncapsulation} from '@angular/core';
 
 import { Picker } from 'emoji-mart';
 import { Emoji } from 'emoji-mart';
@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
 import * as firebase from 'firebase/app';
 import {UserData} from './shared/models/user';
 import {AuthenticateService} from './shared/service/authenticate.service';
+import {CdkScrollable, ScrollDispatcher} from '@angular/cdk/scrolling';
+import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -26,7 +28,12 @@ export class AppComponent implements OnInit{
 
   userName: string;
 
-  constructor(private authenticateService: AuthenticateService, private router: Router) {
+  isShrunk = false;
+
+  constructor(private authenticateService: AuthenticateService, private router: Router,
+              private scrollDispatcher: ScrollDispatcher,
+              private ngZone: NgZone, zone: NgZone
+              ) {
     this.user = this.authenticateService.authUser();
 
     this.user.subscribe(user => {
@@ -36,9 +43,23 @@ export class AppComponent implements OnInit{
         this.displayName = user.displayName;
       }
     }, error => console.log(error));
+
+
+    window.onscroll = () => {
+      zone.run(() => {
+        console.log(window.pageXOffset, window.pageYOffset);
+        if (window.pageYOffset > 0) {
+          this.isShrunk = true;
+        } else {
+          this.isShrunk = false;
+        }
+      });
+    };
   }
 
-  ngOnInit() {
+
+ngOnInit() {
+
     this.visibleSidebar = false;
     this.visibleMenu = false;
 

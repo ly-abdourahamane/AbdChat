@@ -37,6 +37,7 @@
         <mat-form-field>
     <textarea matInput [rows]="10" placeholder="Saisissez votre proposition"
               name="opinion" #name="ngModel" required
+              (keydown)="handleSubmit($event, opinionForm)"
               [(ngModel)]="discussionMessage.opinion">
     </textarea>
         </mat-form-field>
@@ -45,8 +46,50 @@
           <button type="submit" mat-raised-button color="primary"
                   [disabled]="!opinionForm.valid"> Répondre
           </button>
+
+          <button mat-raised-button color="warn" (click)="openPopup(true); lol=true"> Emoji</button>
         </div>
+
+        <emoji-input *ngIf="lol" [(model)]="discussionMessage.opinion"
+                     [inputClass]="'red'"
+                     [searchClass]="'blue'"
+                     style="display: inline-block;"
+                     (setPopupAction)="setPopupAction($event, opinionForm)"
+                     (keydown)="handleSubmit($event, opinionForm)">
+        </emoji-input>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+
+
+<!--
+<mat-form-field>
+  <input matInput placeholder="Saisissez votre message" value="" name="message"
+         [(ngModel)]="message"
+         (keydown)="handleSubmit($event)">
+</mat-form-field>
+-->
+
+<!--
+<button (click)="send()" mat-raised-button color="primary">
+  <i class="material-icons">send</i>
+</button>
+-->
+
+<!--
+<div class="example-full-width">
+  <emoji-input [(model)]="message"
+               [inputClass]="'red'"
+               [searchClass]="'blue'"
+               style="display: inline-block;"
+               (click)="openPopup(true)"
+               (setPopupAction)="setPopupAction($event)"
+               (keydown)="handleSubmit($event)">
+  </emoji-input>
+
+  <button type="button" name="button"  style="display: inline-block;" (click)="openPopup(true)">
+    emoji
+  </button>
+</div>
+-->

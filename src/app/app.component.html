@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar [ngClass]="{'header_nav':true, 'header_nav--big':!isShrunk, 'header_nav--small':isShrunk}">
 
   <button *ngIf="!(user|async)?.uid" mat-button>
     <a href="#"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
@@ -43,7 +43,7 @@
 
     <!-- MENU DE CONNEXION -->
     <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="(user|async)?.uid">
-      <i matTooltip="Accedez à vos paramètres" class="material-icons">account_circle</i>
+      <i matTooltip="Accedez à vos paramètres" class="material-icons"><span>account_circle</span></i>
     </button>
 
     <mat-menu #menu="matMenu">
@@ -135,22 +135,23 @@
   </mat-sidenav-container>
 </p-sidebar>
 
-<!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
-<div class="column-layout">
-  <div class="main-column">
-    <router-outlet></router-outlet>
-  </div>
-  <div class="sidebar-one"></div>
-  <div class="sidebar-two"></div>
-</div>
-
 <p-sidebar [(visible)]="visibleSidebar" position="right" [baseZIndex]="10000">
-  <h3 style="font-weight:normal">Amis connectés</h3>
+  <h3 style="font-weight:normal">Utilisateurs</h3>
   <div #scroller class="call-out">
     <comp-user-list></comp-user-list>
   </div>
 </p-sidebar>
 
+<!-- AFFICHAGE DES TOUS LES AUTRES COMPOSANTS-->
+<div class="layout-main">
+  <div class="column-layout">
+    <div class="main-column">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="sidebar-one"></div>
+    <div class="sidebar-two"></div>
+  </div>
+</div>
 <!--AFFICHAGE DU FOOTER-->
 <comp-footer></comp-footer>
 
