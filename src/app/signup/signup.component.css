@@ -7,7 +7,7 @@ label {
   display: inline-block;
 }
 
-input[type=submit] {
+button[type=submit] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
@@ -15,6 +15,12 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
+}
+
+button:disabled {
+  border: 1px solid #cccccc;
+  background-color: #cccccc;
+  color: white;
 }
 
 input[type=submit]:hover {
@@ -86,6 +92,7 @@ input[type=submit]:hover {
   box-sizing: border-box;
   margin-bottom: 10px;
   margin-right: 10px;
+  width: 80%;
   flex-basis: 80%;
 }
 
@@ -97,3 +104,8 @@ input[type=submit]:hover {
   background-color: #f2f2f2;
 }
 
+.input-field {
+  width: 85%;
+  padding: 8px;
+  outline: none;
+}

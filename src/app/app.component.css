@@ -9,25 +9,13 @@
 .layout-main {
   padding-top: 90px;
 }
-.icon-size {
-  padding: 0 14px;
-}
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.mat-menu-item {
-  color: #999999 !important;
-}
-
-button.mat-menu-item{
-  background-color: #aaaaaa;
-}
-
-button.mat-menu-item:hover {
-  background-color: #999999;
-  color: #999999 !important;
+.menu-item {
+  color: #000;
 }
 
 .column-layout {
@@ -76,5 +64,5 @@ span{
 }
 
 .header_nav--small {
-  height:40px;
+  height:50px;
 }

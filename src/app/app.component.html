@@ -49,22 +49,22 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item *ngIf="(user|async)?.uid">
         <mat-icon>exit_to_app</mat-icon>
-        <span> <a href="#" (click)="logout()">Deconnexion</a> </span>
+        <span> <a href="#" (click)="logout()" class="menu-item">Deconnexion</a> </span>
       </button>
 
       <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
         <mat-icon>mode_edit</mat-icon>
-        <span> <a href="#" (click)="logout()">Paramètres</a> </span>
+        <span> <a href="#" (click)="logout()" class="menu-item">Paramètres</a> </span>
       </button>
 
       <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
         <mat-icon>settings</mat-icon>
-        <span> <a href="#" (click)="logout()">Mon Profile</a> </span>
+        <span> <a href="#" (click)="logout()" class="menu-item">Mon Profile</a> </span>
       </button>
 
       <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
         <mat-icon>delete</mat-icon>
-        <span> <a href="#" (click)="logout()">Supprimer Mon Compte</a> </span>
+        <span> <a href="#" (click)="logout()" class="menu-item">Supprimer Mon Compte</a> </span>
       </button>
     </mat-menu>
 
@@ -81,49 +81,45 @@
 <p-sidebar [(visible)]="visibleMenu" position="left" [baseZIndex]="10000">
 
   <button mat-menu-item>
-          <span>
-          <a href="#" matTooltip="Page d'accueil">Accueil</a>
-            </span>
+          <span><a href="#" matTooltip="Page d'accueil" class="menu-item">Accueil</a></span>
   </button>
 
   <button mat-menu-item>
           <span>
-            <a matTooltip="Contactez moi par mail" routerLink="nous-contacter">Me Contacter</a>
+            <a matTooltip="Contactez moi par mail" routerLink="nous-contacter" class="menu-item">Me Contacter</a>
           </span>
   </button>
 
   <button *ngIf="!(user|async)?.uid" mat-menu-item>
-          <span>
-            <a routerLink="connexion" routerLinkActive="true">Connexion</a>
-          </span>
+          <span><a routerLink="connexion" routerLinkActive="true" class="menu-item">Connexion</a></span>
   </button>
 
   <button *ngIf="!(user|async)?.uid" mat-menu-item>
           <span>
-            <a routerLink="/inscription" routerLinkActive="true">Créer un compte</a>
+            <a routerLink="/inscription" routerLinkActive="true" class="menu-item">Créer un compte</a>
           </span>
   </button>
 
-
   <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
-    <span> <a href="#" (click)="logout()">Paramètres</a> </span>
+    <span> <a href="#" (click)="logout()" class="menu-item">Paramètres</a> </span>
   </button>
 
   <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
-    <span> <a href="#" (click)="logout()">Mon Profile</a> </span>
+    <span> <a href="#" (click)="logout()" class="menu-item">Mon Profile</a> </span>
   </button>
 
   <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
-    <span> <a href="#" (click)="logout()">Supprimer Mon Compte</a> </span>
+    <span> <a href="#" (click)="logout()" class="menu-item">Supprimer Mon Compte</a> </span>
   </button>
 
   <button mat-menu-item (click)="visibleSidebar = true">
-    <span matTooltip="Affiche les utilisateurs" id="friends_" *ngIf="(user|async)?.uid">Utilisateurs</span>
+    <span matTooltip="Affiche les utilisateurs" id="friends_" *ngIf="(user|async)?.uid"
+          class="menu-item">Utilisateurs</span>
   </button>
 
   <button *ngIf="(user|async)?.uid" mat-menu-item>
           <span>
-            <a href="#" (click)="logout()">Déconnexion</a>
+            <a href="#" (click)="logout()" class="menu-item">Déconnexion</a>
           </span>
   </button>
 

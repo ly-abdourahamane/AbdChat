@@ -1,6 +1,6 @@
 .userItem:hover{
-  background-color: #4FC3F7;
-  color: #ddd;
+  background-color: #e8e8e8;
+  color: black;
   transition: ease-in 0.1s;
 }
 

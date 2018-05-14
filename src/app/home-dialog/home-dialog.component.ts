@@ -14,7 +14,7 @@ export class HomeDialogComponent {
     // LANCE AUTOMATIQUEMENT LE MENU DE DIALOGUE
     const dialogRef = this.dialog.open(DialogOverviewComponent, {
       width: '800px',
-      height: '350px',
+      height: '150px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
