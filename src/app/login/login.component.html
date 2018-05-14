@@ -1,63 +1,73 @@
-<h2>Identifiez vous</h2>
+<div class="container animate">
+  <div class="container-login">
+    <form #signInForm="ngForm">
 
-<form class="example-form" #signInForm="ngForm">
-  <mat-form-field class="full-width">
-    <input matInput [formControl]="emailFormControl" placeholder="Adresse mail" value=""
-           [(ngModel)]="email" type="email" name="email">
-    <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
-      <mat-icon>close</mat-icon>
-    </button>
-    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-      S'il vous plaît, saisissez une adresse mail valide
-    </mat-error>
-    <mat-error *ngIf="emailFormControl.hasError('required')">
-      Email est <strong>obligatoire</strong>
-    </mat-error>
-  </mat-form-field>
+      <div class="imgcontainer">
+        <img src="http://financemj.com/wp-content/uploads/2017/07/%E7%94%B71-1.png" alt="Avatar" class="avatar">
+      </div>
 
-  <mat-form-field class="full-width">
-    <input matInput required
-           placeholder="Mot de passe"
-           [type]="hide ? 'password' : 'text'"
-           [(ngModel)]="password"
-           name="password">
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
+      <div class="row-">
+        <h2 style="text-align:center">Connectez vous avec les réseaux sociaux ou manuellement</h2>
 
-  <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
-          [disabled]="!signInForm.form.valid">Connexion
-  </button>
+        <div class="vertical-line">
+          <span class="vertical-line-innertext">Ou</span>
+        </div>
 
-  <div class="align-text">ou</div>
+        <div class="column">
+          <a href="#" class="facebook button-"  routerLink="/connexion">
+            <i class="fa fa-facebook fa-fw"></i> Connexion avec Facebook
+          </a>
+          <a href="#" class="twitter button-"  routerLink="/connexion">
+            <i class="fa fa-twitter fa-fw"></i> Connexion avec Twitter
+          </a>
+          <a href="#" class="google button-" routerLink="/connexion"><i class="fa fa-google fa-fw"> </i> Connexion avec Google+ </a>
+        </div>
 
-  <button mat-raised-button color="primary" (click)="signInWithFacebook()" disabled>Connexion avec Facebook</button>
+        <div class="column">
+          <div class="hide-md-lg">
+            <p>Ou connexion manuelle:</p>
+          </div>
 
-  <div class="align-text">ou</div>
+          <div class="input-container">
+            <i class="fa fa-envelope icon"></i>
+            <input type="text" class="input-field" [formControl]="emailFormControl" placeholder="Adresse mail" value=""
+                   [(ngModel)]="email" type="email" name="email" required>
+          </div>
 
-  <button mat-raised-button color="warn" (click)="signInWithGoogle()" disabled>Connexion avec Google</button>
+          <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input class="input-field" type="password" placeholder="Mot de passe"
+                   [type]="hide ? 'password' : 'text'"
+                   [(ngModel)]="password"
+                   name="password" required>
+          </div>
 
-</form>
+          <button type="submit" class="button-submit" (click)="signInWithEmailAndPassword()"
+                  [disabled]="!signInForm.form.valid">Connexion
+          </button>
 
-<!--
-<div class="ui-g">
-  <div class="ui-g">
-    <button mat-raised-button color="basic" (click)="signInWithEmailAndPassword()"
-            [disabled]="!signInForm.form.valid">Connexion
-    </button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Se souvenir du nom
+            d'utilisateur</label>
+        </div>
+      </div>
+    </form>
   </div>
 
-  <div class="ui-g-12"></div>
+  <div class="bottom-container">
+    <div class="row-">
 
-  <div class="ui-g">
-    <button mat-raised-button color="primary" (click)="signInWithFacebook()">Connexion avec Facebook</button>
-  </div>
+      <div class="column-for-free">
+        <a href="#" style="color:white" routerLink="/accueil" class="align-span">Annuler</a>
+      </div>
 
-  <div class="ui-g-12"></div>
+      <div class="column-for-free">
+        <a routerLink="/inscription" style="color:white" class="align-span">Créer un compte</a>
+      </div>
 
-  <div class="ui-g">
-    <button mat-raised-button color="warn" (click)="signInWithGoogle()">Connexion avec Google</button>
+      <div class="column-for-free">
+        <a href="#" style="color:white" class="align-span">Mot de passe oublié</a>
+      </div>
+    </div>
   </div>
 </div>
-
-
--->

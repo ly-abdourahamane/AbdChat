@@ -25,13 +25,13 @@
 
     <button *ngIf="!(user|async)?.uid" mat-button>
       <strong>
-        <a href="#" (click)="login()"><h3>Connexion</h3></a>
+        <a routerLink="connexion"><h3>Connexion</h3></a>
       </strong>
     </button>
 
     <button *ngIf="!(user|async)?.uid" mat-button>
       <strong>
-        <a routerLink="/inscription"><h3>Créer un compte</h3></a>
+        <a routerLink="inscription"><h3>Créer un compte</h3></a>
       </strong>
     </button>
 
@@ -72,7 +72,7 @@
 
   <div fxShow="true" fxHide.gt-xs="true">
     <button mat-icon-button color="white" (click)="sidenav.toggle(); visibleMenu=true">
-      <mat-icon>menu</mat-icon>
+      <mat-icon><span>menu</span></mat-icon>
     </button>
   </div>
 </mat-toolbar>
@@ -92,10 +92,9 @@
           </span>
   </button>
 
-
   <button *ngIf="!(user|async)?.uid" mat-menu-item>
           <span>
-            <a href="#" (click)="login()" routerLinkActive="true">Connexion</a>
+            <a routerLink="connexion" routerLinkActive="true">Connexion</a>
           </span>
   </button>
 

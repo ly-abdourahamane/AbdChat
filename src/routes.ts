@@ -10,10 +10,13 @@ import {CourseComponent} from './app/courses-container/course/course.component';
 import {CourseListComponent} from './app/courses-container/course-list/course-list.component';
 import {SendMailComponent} from './app/send-mail/send-mail.component';
 import {SubjectDiscussionComponent} from './app/courses-container/angular/subject-discussion/subject-discussion.component';
+import {LoginComponent} from './app/login/login.component';
+import {SignupComponent} from './app/signup/signup.component';
 
 export const appRoutes: Routes = [
 
-  {path: '', redirectTo: '/connexion', pathMatch: 'full'},
+  {path: '', redirectTo: 'accueil', pathMatch: 'full'},
+  {path: 'accueil', component: SigallComponent},
 
   {path: 'cours', component: CoursesContainerComponent, children: [
       {path: '', component: CourseListComponent},
@@ -26,8 +29,8 @@ export const appRoutes: Routes = [
 
   {path: 'upload', component: UploadComponent},
 
-  {path: 'inscription', component: SigallComponent},
-  {path: 'connexion', component: SigallComponent},
+  {path: 'inscription', component: SignupComponent},
+  {path: 'connexion', component: LoginComponent},
   {path: 'chat', component: ChatRoomComponent},
   {path: 'layout', component: FlexboxComponent},
   {path: 'country', component: CountryComponent},

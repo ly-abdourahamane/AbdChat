@@ -1,48 +1,70 @@
-<h2>Créer un compte</h2>
+<div class="container animate">
+  <div class="container-signup">
 
-<form class="example-form" #signUpForm="ngForm">
+    <div class="call-outs-container">
+      <div class="call-out">
+        <p>Conakry (Sosso: Kɔnakiri) is the capital and largest city of Guinea.
+          A port city, it serves as the economic, financial and cultural centre of
+          Guinea. Its population as of the 2014 Guinea census was 1,660,973 [1] Originally
+          situated on Tombo Island, one of the Îles de Los, it has since spread up the neighboring
+          Kaloum Peninsula. The current population of Conakry is difficult to ascertain, although
+          the U.S. Bureau of African Affairs has estimated
+          it at 2 million, accounting for one sixth of the entire population of the country.[2]</p>
+      </div>
 
-  <mat-form-field class="full-width">
-    <input matInput required
-           placeholder="Nom" value=""
-           [(ngModel)]="displayName"
-           type="text"
-           name="displayName">
-    <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="displayName=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
+      <div class="call-out">
+        <h3>Créer un compte</h3>
+        <form #signUpForm="ngForm">
+          <div class="row-">
+            <div class="column-25">
+              <label for="name">Nom</label>
+            </div>
+            <div class="column-75">
+              <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input type="text" class="input-field" placeholder="Nom" value="" id="name" [(ngModel)]="displayName"
+                       name="displayName">
+              </div>
+            </div>
+          </div>
 
-  <mat-form-field class="full-width">
-    <input matInput [formControl]="emailFormControl" placeholder="Adresse mail" value=""
-           [(ngModel)]="email" type="email" name="email">
-    <button mat-button *ngIf="displayName" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
-      <mat-icon>close</mat-icon>
-    </button>
-    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-      S'il vous plaît, saisissez une adresse mail valid
-    </mat-error>
-    <mat-error *ngIf="emailFormControl.hasError('required')">
-      Email est <strong>obligatoire</strong>
-    </mat-error>
-  </mat-form-field>
+          <div class="row-">
+            <div class="column-25">
+              <label for="email">Adresse mail</label>
+            </div>
+            <div class="column-75">
+              <div class="input-container">
+                <i class="fa fa-envelope icon"></i>
+                <input class="input-field" [formControl]="emailFormControl" id="email" placeholder="Adresse mail"
+                       value=""
+                       [(ngModel)]="email" type="email" name="email">
+              </div>
+            </div>
+          </div>
 
-  <mat-form-field class="full-width">
-    <input matInput required
-           placeholder="Mot de passe"
-           [type]="hide ? 'password' : 'text'"
-           [(ngModel)]="password"
-           name="password">
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
-</form>
+          <div class="row-">
+            <div class="column-25">
+              <label for="password">Mot de passe</label>
+            </div>
+            <div class="column-75">
+              <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" type="password" required id="password"
+                       placeholder="Mot de passe"
+                       [type]="hide ? 'password' : 'text'"
+                       [(ngModel)]="password"
+                       name="password">
+              </div>
+            </div>
+          </div>
 
-
-<button mat-raised-button color="primary"
-        [disabled]="!signUpForm.form.valid || emailFormControl.hasError('email') && !emailFormControl.hasError('required')"
-        type="submit" (click)="signUp()"> S'inscrire
-</button>
-
-
-
-
+          <div class="row-">
+            <input type="submit"
+                   [disabled]="!signUpForm.form.valid || emailFormControl.hasError('email') && !emailFormControl.hasError('required')"
+                   type="submit" (click)="signUp()" value="S'inscrire">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

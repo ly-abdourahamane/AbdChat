@@ -15,6 +15,7 @@
 body,
 html {
   margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button:disabled {
@@ -66,7 +67,46 @@ comp-chat-room {
   flex-direction: column;
 }
 
-/* ALIGNEMENT DES BOUTONS*/
+/* POUR LES ICONES*/
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 12px;
+  background:  grey;
+  color: white;
+  min-width: 40px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  outline: none;
+}
+
+/*ANIMATION*/
+
+/* Zoom d'Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
 
 
 

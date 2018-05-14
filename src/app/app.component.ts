@@ -59,7 +59,6 @@ export class AppComponent implements OnInit{
 
 
 ngOnInit() {
-
     this.visibleSidebar = false;
     this.visibleMenu = false;
 
@@ -75,8 +74,8 @@ ngOnInit() {
             this.displayName = this.userName;
           }}, error => console.log(error));
       } else {
-        // REDIRECTION VERS LA PAGE DE CONNEXION S'IL N'EST IDENTIFIÉ
-        this.router.navigate(['connexion']);
+        // REDIRECTION VERS LA PAGE D'ACCUEIL
+        this.router.navigate(['accueil']);
       }
     });
   }

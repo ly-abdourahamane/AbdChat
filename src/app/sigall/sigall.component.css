@@ -28,18 +28,10 @@
   /* margin-right: 40px;*/
 }
 
-.call-out:nth-child(2) {
-}
-
-.call-out:nth-child(1) {
-  order: 2;
-}
 
 .card-theme {
   max-width: 200px;
 }
-
-
 
 
 /* */
@@ -53,10 +45,6 @@
     -ms-flex-pack: center;
     justify-content: space-around;
   }
-}
-
-.list-category {
-  margin: 0px;
 }
 
 .list-item,

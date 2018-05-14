@@ -1,37 +1,14 @@
 <div class="call-outs-container">
-  <div class="call-out">
-    <mat-tab-group class="tab-group">
-      <mat-tab label="Connexion">
-        <div class="ui-g">
-          <div class="ui-g-2"></div>
-          <div class="ui-g-8">
-            <comp-login></comp-login>
-          </div>
-          <div class="ui-g-2"></div>
-        </div>
-      </mat-tab>
 
-      <mat-tab label="Créé un compte">
-        <div class="ui-g">
-          <div class="ui-g-2"></div>
-          <div class="ui-g-8">
-            <comp-signup></comp-signup>
-          </div>
-          <div class="ui-g-2"></div>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
+  <div class="call-out"></div>
 
-  <div class="call-out">
-    <div class="list-category">
+   <div class="call-out">
       <div *ngFor="let discipline of disciplines" class="list-item">
         <mat-card class="list-card">
           <mat-card-title class="list-card-title mat-card-title">{{discipline.name}}</mat-card-title>
           <div class="list-icon-spacer"></div>
         </mat-card>
       </div>
-    </div>
   </div>
 </div>
 

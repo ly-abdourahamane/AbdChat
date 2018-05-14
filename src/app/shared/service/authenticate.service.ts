@@ -30,7 +30,7 @@ export class AuthenticateService {
 
   logout() {
     this.afAuth.auth.signOut();
-    this.router.navigate(['login']);
+    this.router.navigate(['accueil']);
   }
 
   get currentUserId(): string {
