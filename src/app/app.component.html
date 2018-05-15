@@ -1,11 +1,7 @@
 <mat-toolbar [ngClass]="{'header_nav':true, 'header_nav--big':!isShrunk, 'header_nav--small':isShrunk}">
 
-  <button *ngIf="!(user|async)?.uid" mat-button>
+  <button mat-button>
     <a href="#"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
-  </button>
-
-  <button *ngIf="(user|async)?.uid" mat-button>
-    <a routerLink="/cours"><i matTooltip="Page d'accueil" class="material-icons w3-xxlarge w3-spin">home</i></a>
   </button>
 
   <button mat-button>
@@ -16,11 +12,11 @@
 
   <span class="spacer"></span>
 
-  <button mat-button (click)="visibleSidebar = true">
-    <span matTooltip="Affiche les utilisateurs" id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
-  </button>
-
   <div fxShow="true" fxHide.lt-md="true">
+    <button mat-button *ngIf="(user|async)?.uid" (click)="visibleSidebar = true">
+      <span matTooltip="Affiche les utilisateurs" id="friends" *ngIf="(user|async)?.uid"><h3>Utilisateurs</h3></span>
+    </button>
+
     <span id="displayName" *ngIf="(user|async)?.uid">Bienvenue {{displayName}}</span>
 
     <button *ngIf="!(user|async)?.uid" mat-button>
@@ -49,7 +45,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item *ngIf="(user|async)?.uid">
         <mat-icon>exit_to_app</mat-icon>
-        <span> <a href="#" (click)="logout()" class="menu-item">Deconnexion</a> </span>
+        <span> <a href="#" (click)="logout()" class="menu-item">Déconnexion</a> </span>
       </button>
 
       <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
@@ -70,9 +66,11 @@
 
   </div>
 
-  <div fxShow="true" fxHide.gt-xs="true">
+  <div fxShow="true" fxHide.gt-xs="true" fxHide.sm="false">
     <button mat-icon-button color="white" (click)="sidenav.toggle(); visibleMenu=true">
-      <mat-icon><span>menu</span></mat-icon>
+      <div class="my-burger"></div>
+      <div class="my-burger"></div>
+      <div class="my-burger"></div>
     </button>
   </div>
 </mat-toolbar>
@@ -80,44 +78,37 @@
 <!--AFFICHAGE DU MENU DU GAUCHE POUR LES PETITS ECRANS-->
 <p-sidebar [(visible)]="visibleMenu" position="left" [baseZIndex]="10000">
 
-  <button mat-menu-item>
+  <button mat-menu-item (click)="closeMenuBurger()">
           <span><a href="#" matTooltip="Page d'accueil" class="menu-item">Accueil</a></span>
   </button>
 
-  <button mat-menu-item>
-          <span>
-            <a matTooltip="Contactez moi par mail" routerLink="nous-contacter" class="menu-item">Me Contacter</a>
-          </span>
+  <button mat-menu-item *ngIf="(user|async)?.uid" (click)="visibleSidebar = true; closeMenuBurger()">
+    <span><a href="#"matTooltip="Affiche les utilisateurs" class="menu-item">Utilisateurs</a></span>
   </button>
 
-  <button *ngIf="!(user|async)?.uid" mat-menu-item>
+  <button *ngIf="!(user|async)?.uid" mat-menu-item (click)="closeMenuBurger()">
           <span><a routerLink="connexion" routerLinkActive="true" class="menu-item">Connexion</a></span>
   </button>
 
-  <button *ngIf="!(user|async)?.uid" mat-menu-item>
+  <button *ngIf="!(user|async)?.uid" mat-menu-item (click)="closeMenuBurger()">
           <span>
             <a routerLink="/inscription" routerLinkActive="true" class="menu-item">Créer un compte</a>
           </span>
   </button>
 
-  <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+  <button mat-menu-item *ngIf="(user|async)?.uid" disabled (click)="closeMenuBurger()">
     <span> <a href="#" (click)="logout()" class="menu-item">Paramètres</a> </span>
   </button>
 
-  <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+  <button mat-menu-item *ngIf="(user|async)?.uid" disabled (click)="closeMenuBurger()">
     <span> <a href="#" (click)="logout()" class="menu-item">Mon Profile</a> </span>
   </button>
 
-  <button mat-menu-item *ngIf="(user|async)?.uid" disabled>
+  <button mat-menu-item *ngIf="(user|async)?.uid" disabled (click)="closeMenuBurger()">
     <span> <a href="#" (click)="logout()" class="menu-item">Supprimer Mon Compte</a> </span>
   </button>
 
-  <button mat-menu-item (click)="visibleSidebar = true">
-    <span matTooltip="Affiche les utilisateurs" id="friends_" *ngIf="(user|async)?.uid"
-          class="menu-item">Utilisateurs</span>
-  </button>
-
-  <button *ngIf="(user|async)?.uid" mat-menu-item>
+  <button *ngIf="(user|async)?.uid" mat-menu-item (click)="closeMenuBurger()">
           <span>
             <a href="#" (click)="logout()" class="menu-item">Déconnexion</a>
           </span>

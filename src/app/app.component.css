@@ -66,3 +66,11 @@ span{
 .header_nav--small {
   height:50px;
 }
+
+/*MENU BURGER CSS*/
+.my-burger {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+}

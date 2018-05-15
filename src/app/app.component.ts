@@ -96,4 +96,8 @@ ngOnInit() {
    sendMail() {
     this.router.navigate(['/nous-contacter']);
   }
+
+  closeMenuBurger() {
+     this.visibleMenu = false;
+  }
 }
