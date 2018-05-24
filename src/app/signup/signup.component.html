@@ -2,7 +2,7 @@
   <div class="container-signup">
 
     <div class="call-outs-container">
-      <div class="call-out w3-card" style="padding-left: 10px; padding-right: 10px">
+      <div class="call-out">
         <div class="smartphone">
           <h3 align="center">BIENVENUE !</h3>
         </div>
@@ -10,7 +10,7 @@
 
       <div class="call-out w3-card">
         <h3 align="center">Créer un compte</h3>
-        <form #signUpForm="ngForm" style="padding-left: 10px">
+        <form #signUpForm="ngForm">
           <div class="row-">
             <div class="column-25">
               <label for="name">Nom</label>
@@ -54,10 +54,10 @@
             </div>
           </div>
 
-          <div class="row-">
-            <button type="submit"
+          <div align="right" style="padding: 8px;">
+            <button type="submit" class="my-button success"
                     [disabled]="!signUpForm.form.valid || emailFormControl.hasError('email') && !emailFormControl.hasError('required')"
-                    type="submit" (click)="signUp()">S'inscrire
+                    (click)="signUp()">S'inscrire
             </button>
           </div>
         </form>

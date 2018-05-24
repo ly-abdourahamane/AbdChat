@@ -11,6 +11,9 @@
   flex: 1;
 }
 
+.container {
+  width: 80%;
+}
 
 .column-layout {
   max-width: 1300px;
@@ -40,9 +43,17 @@
 /* Définition des marges */
 .call-outs-container {
   max-width: 1400px;
-  margin: 40px auto 0 auto;
+  margin: auto;
 
  /* align-items: flex-start; */ /*permet aussi l'alignement*/
+}
+
+.call-out {
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  flex-basis: 49%;
+  /* margin-right: 40px;*/
 }
 
 /* permet d'ajouter les responsives (affichage pour les portables, tablettes, ..)*/
@@ -53,13 +64,7 @@
   }
 }
 
-.call-out {
-  padding: 0px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  flex-basis: 80%;
- /* margin-right: 40px;*/
-}
+
 
 /*.call-out:last-child {
   margin-right: 0; !* positionne le dernier composant à la fin*!
@@ -71,9 +76,6 @@
 
 .call-out:nth-child(2) {
   background-color: yellow;
-}
-.call-out:nth-child(3) {
-  background-color: green;
 }
 
 
